@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int paper_needed(vector<int> dimensions) {
+tuple<int, int> paper_ribbon_needed(vector<int> dimensions) {
   if (dimensions.size() != 3) {
     cout << "hek" << endl;
     exit(1);
@@ -21,21 +21,23 @@ int paper_needed(vector<int> dimensions) {
 
   int box = (2 * l * w) + (2 * w * h) + (2 * h * l);
 
-  int extra;
-  if (l >= w && l >= h) {
-    extra = w * h;
-  } else if (w >= l && w >= h) {
-    extra = l * h;
-  } else {
-    extra = w * l;
-  }
+  sort(dimensions.begin(), dimensions.end());
+  int extra = dimensions[0] * dimensions[1];
 
-  return box + extra;
+  int paper = box + extra;
+
+  int ribbon_box = 2 * dimensions[0] + 2 * dimensions[1];
+  int ribbon_cube = l * w * h;
+  int ribbon = ribbon_box + ribbon_cube;
+
+  return make_tuple(paper, ribbon);
 }
 
-void print_dimension_info(vector<int> dimensions, int needs) {
+void print_dimension_info(vector<int> dimensions,
+                          tuple<int, int> paper_ribbon) {
   cout << "A box with dimensions " << dimensions[0] << "⨉" << dimensions[1]
-       << "⨉" << dimensions[2] << " needs: " << needs << " sq ft. of paper"
+       << "⨉" << dimensions[2] << " needs: " << get<0>(paper_ribbon)
+       << " sq ft. of paper and " << get<1>(paper_ribbon) << "ft. of ribbon"
        << endl;
 }
 
@@ -59,23 +61,27 @@ int main() {
   vector<vector<int>> boxes = {{2, 3, 4}, {1, 1, 10}};
 
   for (auto box : boxes) {
-    int needs = paper_needed(box);
+    auto needs = paper_ribbon_needed(box);
     print_dimension_info(box, needs);
   }
 
   std::ifstream infile("day_two_dimensions.txt");
   std::string line;
-  int total_required = 0;
+  int total_paper_needed = 0;
+  int total_ribbon_needed = 0;
 
   for (std::string line; getline(infile, line);) {
     vector<int> box = dimensions_from_string(line);
-    int needs = paper_needed(box);
+    auto needs = paper_ribbon_needed(box);
     print_dimension_info(box, needs);
-    total_required += needs;
+    total_paper_needed += get<0>(needs);
+    total_ribbon_needed += get<1>(needs);
   }
 
-  cout << "The total paper required is " << total_required << " sq ft. of paper"
-       << endl;
+  cout << "The total paper needed is " << total_paper_needed
+       << " sq ft. of paper" << endl;
+  cout << "The total ribbon needed is " << total_ribbon_needed
+       << " sq ft. of paper" << endl;
 
   return 0;
 }
