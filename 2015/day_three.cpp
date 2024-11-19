@@ -44,7 +44,6 @@ void tracker(string the_string) {
     } else if (c == 'v') {
       get<1>(spot) -= 1;
     } else {
-      cout << "Unexpected: " << c << " ." << endl;
       position_update = false;
     }
 
@@ -56,9 +55,72 @@ void tracker(string the_string) {
     }
   }
 
-  auto a = house_visits.find(make_tuple(0, 0))->second;
-  cout << "x " << a << endl;
-  cout << "t: " << house_visits.size() << endl;
+  cout << "solo visits: " << house_visits.size() << endl;
+}
+
+void pair_tracker(string the_string) {
+  map<location, int> house_visits = {};
+  int total_visits = 0;
+  location santa_spot = make_tuple(0, 0);
+  location robo_santa_spot = make_tuple(0, 0);
+  auto [index, inserted] = house_visits.try_emplace(santa_spot, 1);
+  if (!inserted) {
+    index->second = index->second + 1;
+  }
+  auto [index_r, inserted_r] = house_visits.try_emplace(robo_santa_spot, 1);
+  if (!inserted_r) {
+    index_r->second = index_r->second + 1;
+  };
+  bool position_update = true;
+
+  for (char c : the_string) {
+    position_update = true;
+    if (c == '<') {
+      if (total_visits % 2 == 0) {
+        get<0>(santa_spot) -= 1;
+      } else {
+        get<0>(robo_santa_spot) -= 1;
+      }
+    } else if (c == '>') {
+      if (total_visits % 2 == 0) {
+        get<0>(santa_spot) += 1;
+      } else {
+        get<0>(robo_santa_spot) += 1;
+      }
+    } else if (c == '^') {
+      if (total_visits % 2 == 0) {
+        get<1>(santa_spot) += 1;
+      } else {
+        get<1>(robo_santa_spot) += 1;
+      }
+    } else if (c == 'v') {
+      if (total_visits % 2 == 0) {
+        get<1>(santa_spot) -= 1;
+      } else {
+        get<1>(robo_santa_spot) -= 1;
+      }
+    } else {
+      position_update = false;
+    }
+
+    if (position_update) {
+      if (total_visits % 2 == 0) {
+        auto [index, inserted] = house_visits.try_emplace(santa_spot, 1);
+        if (!inserted) {
+          index->second = index->second + 1;
+        }
+      } else {
+        auto [index, inserted] = house_visits.try_emplace(robo_santa_spot, 1);
+        if (!inserted) {
+          index->second = index->second + 1;
+        }
+      }
+      total_visits += 1;
+      // cout <<  "s: " << location_string(santa_spot) << endl;
+    }
+  }
+
+  cout << "pair visits: " << house_visits.size() << endl;
 }
 
 int main() {
@@ -66,12 +128,14 @@ int main() {
 
   for (auto path : paths) {
     tracker(path);
+    pair_tracker(path);
   }
 
   std::ifstream ifs("day_three_visits.txt");
   std::string line((std::istreambuf_iterator<char>(ifs)),
                    (std::istreambuf_iterator<char>()));
   tracker(line);
+  pair_tracker(line);
 
   return 0;
 }
