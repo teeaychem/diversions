@@ -1,2 +1,7 @@
+**/.cache/
 **.DS_Store
-**.txt
+**/day_*.txt
+**/build/
+**/vcpkg_installed/
+**/vcpkg-configuration.json
+**compile_commands.json

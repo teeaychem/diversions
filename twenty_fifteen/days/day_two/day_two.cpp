@@ -1,8 +1,7 @@
+#include <algorithm>
 #include <fstream>
 #include <iostream>
-#include <optional>
 #include <ostream>
-#include <sstream>
 #include <string>
 #include <tuple>
 #include <vector>
