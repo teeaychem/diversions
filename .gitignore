@@ -1,6 +1,6 @@
 **/.cache/
 **.DS_Store
-**/day_*.txt
+**/data/
 **/build/
 **/vcpkg_installed/
 **/vcpkg-configuration.json

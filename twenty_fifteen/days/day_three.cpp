@@ -30,7 +30,7 @@ string location_string(location l) {
 void tracker(string the_string) {
   map<location, int> house_visits = {};
   location spot = make_tuple(0, 0);
-  auto [index, inserted] = house_visits.try_emplace(spot, 1);
+  house_visits.try_emplace(spot, 1);
   bool position_update = true;
 
   for (char c : the_string) {
@@ -123,7 +123,7 @@ void pair_tracker(string the_string) {
   cout << "pair visits: " << house_visits.size() << endl;
 }
 
-int main() {
+int main(int argc, char **argv) {
   vector<string> paths = {">", "^>v<", "^v^v^v^v^v"};
 
   for (auto path : paths) {
@@ -131,7 +131,14 @@ int main() {
     pair_tracker(path);
   }
 
-  std::ifstream ifs("day_three_visits.txt");
+  if (argc != 2) {
+    cout << "A file is needed for anything else…" << endl;
+    exit(0);
+  }
+
+  string the_file = argv[1];
+
+  std::ifstream ifs(the_file);
   std::string line((std::istreambuf_iterator<char>(ifs)),
                    (std::istreambuf_iterator<char>()));
   tracker(line);

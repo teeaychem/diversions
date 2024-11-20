@@ -8,14 +8,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 add_compile_options(-pedantic -Wall -Wextra)
 
 
-add_executable(day_one days/day_one/day_one.cpp)
-add_executable(day_two days/day_two/day_two.cpp)
-add_subdirectory(days/day_three)
-
+add_executable(day_one days/day_one.cpp)
+add_executable(day_two days/day_two.cpp)
+add_executable(day_three days/day_three.cpp)
 
 find_package(OpenSSL REQUIRED)
 
-add_executable(day_four  days/day_four/day_four.cpp)
-
+add_executable(day_four days/day_four.cpp)
 target_link_libraries(day_four PRIVATE OpenSSL::SSL)
-target_link_libraries(day_four PRIVATE OpenSSL::Crypto)
+
+add_executable(day_five days/day_five.cpp)

@@ -56,7 +56,7 @@ vector<int> dimensions_from_string(string the_string) {
   return dimensions;
 }
 
-int main() {
+int main(int argc, char **argv) {
   vector<vector<int>> boxes = {{2, 3, 4}, {1, 1, 10}};
 
   for (auto box : boxes) {
@@ -64,7 +64,14 @@ int main() {
     print_dimension_info(box, needs);
   }
 
-  std::ifstream infile("day_two_dimensions.txt");
+  if (argc != 2) {
+    cout << "A file is needed for anything else…" << endl;
+    exit(0);
+  }
+
+  string the_file = argv[1];
+  std::ifstream infile(the_file);
+
   std::string line;
   int total_paper_needed = 0;
   int total_ribbon_needed = 0;
