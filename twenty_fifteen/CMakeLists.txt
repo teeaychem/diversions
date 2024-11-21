@@ -19,3 +19,4 @@ target_link_libraries(day_four PRIVATE OpenSSL::SSL)
 
 add_executable(day_five days/day_five.cpp)
 add_executable(day_six days/day_six.cpp)
+add_executable(day_seven days/day_seven.cpp)
