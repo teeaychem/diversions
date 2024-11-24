@@ -24,3 +24,8 @@ add_executable(day_eight days/day_eight.cpp)
 add_executable(day_nine days/day_nine.cpp)
 add_executable(day_ten days/day_ten.cpp)
 add_executable(day_eleven days/day_eleven.cpp)
+
+
+find_package(nlohmann_json 3.2.0 REQUIRED)
+add_executable(day_twelve days/day_twelve.cpp)
+target_link_libraries(day_twelve PRIVATE nlohmann_json::nlohmann_json)
