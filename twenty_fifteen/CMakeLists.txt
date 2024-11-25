@@ -31,3 +31,4 @@ add_executable(day_twelve days/day_twelve.cpp)
 target_link_libraries(day_twelve PRIVATE nlohmann_json::nlohmann_json)
 
 add_executable(day_thirteen days/day_thirteen.cpp)
+add_executable(day_fourteen days/day_fourteen.cpp)
