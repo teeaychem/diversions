@@ -187,14 +187,14 @@ int main(int argc, char **argv) {
   }
 
   string the_file = argv[1];
-  std::ifstream infile(the_file);
+  ifstream infile(the_file);
 
-  std::string line;
+  string line;
 
   binary_grid big_grid = make_bool_grid(1000);
   int_grid big_int_grid = make_int_grid(1000);
 
-  for (std::string line; getline(infile, line);) {
+  for (string line; getline(infile, line);) {
     do_thing(&big_grid, line);
     do_int_thing(&big_int_grid, line);
   }
