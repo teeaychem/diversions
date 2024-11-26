@@ -46,5 +46,6 @@ void display_permutations(std::vector<std::vector<element>> *permutations) {
 }
 
 
+
 } // namespace combinatorics
 } // namespace aoc
