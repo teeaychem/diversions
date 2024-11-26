@@ -3,9 +3,29 @@
 #include <unordered_set>
 #include <vector>
 
+template <typename element>
+void size_k_vectors_helper(std::vector<std::vector<element>> &variations,
+                           std::vector<element> &used, std::vector<element> &v,
+                           int k) {
+  if (k == 0) {
+    std::vector<element> the_copy{};
+    copy(used.begin(), used.end(), back_inserter(the_copy));
+    variations.push_back(the_copy);
+  } else if (v.empty()) {
+    return;
+  } else {
+    int last = v.back();
+    v.pop_back();
+    size_k_vectors_helper(variations, used, v, k);
+    used.push_back(last);
+    size_k_vectors_helper(variations, used, v, k - 1);
+    used.pop_back();
+    v.push_back(last);
+  }
+}
+
 namespace advent {
 namespace combinatorics {
-
 
 template <typename element>
 std::vector<std::vector<element>>
@@ -45,7 +65,14 @@ void display_permutations(std::vector<std::vector<element>> *permutations) {
   }
 }
 
-
+template <typename element>
+std::vector<std::vector<element>> size_k_vectors(std::vector<element> &v,
+                                                 int k) {
+  std::vector<std::vector<element>> variations{};
+  std::vector<element> buffer;
+  size_k_vectors_helper(variations, buffer, v, k);
+  return variations;
+}
 
 } // namespace combinatorics
-} // namespace aoc
+} // namespace advent

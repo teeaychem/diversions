@@ -13,32 +13,6 @@ void print_vector(vector<int> &v) {
   cout << endl;
 }
 
-void size_k_vectors_helper(vector<vector<int>> &variations, vector<int> &used,
-                           vector<int> &v, int k) {
-  if (k == 0) {
-    vector<int> the_copy{};
-    copy(used.begin(), used.end(), back_inserter(the_copy));
-    variations.push_back(the_copy);
-  } else if (v.empty()) {
-    return;
-  } else {
-    int last = v.back();
-    v.pop_back();
-    size_k_vectors_helper(variations, used, v, k);
-    used.push_back(last);
-    size_k_vectors_helper(variations, used, v, k - 1);
-    used.pop_back();
-    v.push_back(last);
-  }
-}
-
-vector<vector<int>> size_k_vectors(vector<int> &v, int k) {
-  vector<vector<int>> variations{};
-  vector<int> buffer;
-  size_k_vectors_helper(variations, buffer, v, k);
-  return variations;
-}
-
 int the_f(vector<int> &containers, int liters) {
   if (liters == 0) {
     return 1;
@@ -96,7 +70,7 @@ int main(int argc, char **argv) {
   cout << the_g(usage, containers, 150, 0) << endl;
 
   int the_min = *min_element(usage.begin(), usage.end());
-  vector<vector<int>> subvecs = size_k_vectors(containers, the_min);
+  vector<vector<int>> subvecs = advent::combinatorics::size_k_vectors(containers, the_min);
 
   int using_the_min{0};
   for (auto v : subvecs) {
