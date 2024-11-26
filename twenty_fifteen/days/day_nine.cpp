@@ -1,5 +1,5 @@
-#include "./../../lib/combinatorics.hpp"
-#include "./../../lib/strings.hpp"
+#include <advent/combinatorics.hpp>
+#include <advent/strings.hpp>
 #include <climits>
 #include <cstddef>
 #include <cstdlib>
@@ -16,12 +16,12 @@ using namespace std;
 
 int main(int argc, char **argv) {
   unordered_set<int> test_ints = {0, 1, 2, 3};
-  auto int_result = combinatorics::permute(test_ints);
-  combinatorics::display_permutations(&int_result);
+  auto int_result = advent::combinatorics::permute(test_ints);
+  advent::combinatorics::display_permutations(&int_result);
 
   unordered_set<string> test_strings = {"a", "be", "sea"};
-  auto string_result = combinatorics::permute(test_strings);
-  combinatorics::display_permutations(&string_result);
+  auto string_result = advent::combinatorics::permute(test_strings);
+  advent::combinatorics::display_permutations(&string_result);
 
   unordered_map<string, unordered_map<string, size_t>>
       location_location_distance;
@@ -35,7 +35,7 @@ int main(int argc, char **argv) {
   ifstream infile(the_file);
 
   for (string line; getline(infile, line);) {
-    auto y = string_lib::string_split_delim(line, " ");
+    auto y = advent::string::string_split_delim(line, " ");
     location_location_distance[y[0]][y[2]] = stoi(y[4]);
   }
 
@@ -47,7 +47,7 @@ int main(int argc, char **argv) {
     }
   }
 
-  auto location_permutations = combinatorics::permute(locations);
+  auto location_permutations = advent::combinatorics::permute(locations);
 
   unsigned int min_distance = numeric_limits<unsigned int>::max();
   unsigned int max_distance = numeric_limits<unsigned int>::min();

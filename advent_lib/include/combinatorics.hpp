@@ -1,8 +1,11 @@
+#pragma once
 #include <iostream>
 #include <unordered_set>
 #include <vector>
 
+namespace advent {
 namespace combinatorics {
+
 
 template <typename element>
 std::vector<std::vector<element>>
@@ -42,4 +45,6 @@ void display_permutations(std::vector<std::vector<element>> *permutations) {
   }
 }
 
+
 } // namespace combinatorics
+} // namespace aoc

@@ -53,7 +53,7 @@ void apply_to_k_subsets(uint n, uint k, function<void(vector<uint> &)> f) {
   subsets_helper(f, n, k, x, 0, 0);
 }
 
-function<void(vector<uint> &)> go_between(uint total, uint groups,
+function<void(vector<uint> &)> derive_splits(uint total, uint groups,
                                           function<void(vector<uint> &)> g) {
   auto transform_to_distribution = [total, groups, g](vector<uint> &v) {
     vector<uint> dist_vec{};
@@ -69,7 +69,7 @@ function<void(vector<uint> &)> go_between(uint total, uint groups,
 }
 
 void apply_to_k_splits_of_n(uint n, uint k, function<void(vector<uint> &)> f) {
-  apply_to_k_subsets(n + (k - 1), k - 1, go_between(n, k, f));
+  apply_to_k_subsets(n + (k - 1), k - 1, derive_splits(n, k, f));
 }
 
 int main(int argc, char **argv) {

@@ -1,5 +1,5 @@
-
-#include "./../../lib/combinatorics.hpp"
+#include <advent/combinatorics.hpp>
+#include <advent/strings.hpp>
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
@@ -56,8 +56,8 @@ int main(int argc, char **argv) {
     names.insert(my_name);
   }
 
-  vector<vector<string>> arrangements = combinatorics::permute(names);
-  combinatorics::display_permutations(&arrangements);
+  vector<vector<string>> arrangements = advent::combinatorics::permute(names);
+  advent::combinatorics::display_permutations(&arrangements);
 
   vector<string> optimal_seating;
   int max_happiness = numeric_limits<int>::min();

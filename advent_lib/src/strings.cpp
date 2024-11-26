@@ -1,7 +1,8 @@
 #include <string>
 #include <vector>
 
-namespace string_lib {
+namespace advent {
+namespace string {
 
 std::vector<std::string> string_split_delim(std::string input,
                                             std::string delimiter) {
@@ -18,3 +19,4 @@ std::vector<std::string> string_split_delim(std::string input,
 }
 
 } // namespace string_lib
+} // namespace aoc
