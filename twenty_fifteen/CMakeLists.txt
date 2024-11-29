@@ -10,15 +10,15 @@ add_compile_options(-pedantic -Wall -Wextra)
 list(APPEND CMAKE_PREFIX_PATH "../advent_lib/install/")
 find_package(advent 0.0.1 CONFIG REQUIRED)
 
-find_package(OpenSSL REQUIRED)
+# find_package(OpenSSL REQUIRED)
 
 
 add_executable(day_one days/day_one.cpp)
 add_executable(day_two days/day_two.cpp)
 add_executable(day_three days/day_three.cpp)
 
-add_executable(day_four days/day_four.cpp)
-target_link_libraries(day_four PRIVATE OpenSSL::SSL)
+# add_executable(day_four days/day_four.cpp)
+# target_link_libraries(day_four PRIVATE OpenSSL::SSL)
 
 add_executable(day_five days/day_five.cpp)
 add_executable(day_six days/day_six.cpp)
@@ -52,3 +52,4 @@ add_executable(day_nineteen days/day_nineteen.cpp)
 # add_executable(day_twenty days/day_twenty.cpp)
 add_executable(day_twentyone days/day_twentyone.cpp)
 add_executable(day_twentytwo days/day_twentytwo.cpp)
+add_executable(day_twentythree days/day_twentythree.cpp)
