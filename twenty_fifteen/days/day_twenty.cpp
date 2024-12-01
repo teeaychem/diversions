@@ -1,7 +1,7 @@
 #include <algorithm>
+#include <cmath>
 #include <functional>
 #include <iostream>
-#include <utility>
 #include <vector>
 using namespace std;
 
@@ -44,7 +44,7 @@ int factorial(int n) {
 
 int main(int argc, char **argv) {
 
-  uint n = ???;
+  uint n = 0;
   for (int i = 1;; i++) {
     if (factorial(i) > n) {
       cout << i << endl;
@@ -78,7 +78,7 @@ int main(int argc, char **argv) {
   // cout << "the " << the_primes.size() << " th prime" << endl;
 
   vector<uint> ok_houses{};
-  uint total_houses = ???;
+  uint total_houses = 0;
   vector<uint> presents_at_house = vector(total_houses + 1, (uint)0);
   for (uint elf = 1; elf < total_houses; elf++) {
     // for (uint house = elf; house < total_houses; house += elf) {
