@@ -56,3 +56,5 @@ add_executable(day_twentythree days/day_twentythree.cpp)
 
 add_executable(day_twentyfour days/day_twentyfour.cpp)
 target_link_libraries(day_twentyfour PRIVATE advent::advent)
+
+add_executable(day_twentyfive days/day_twentyfive.cpp)
