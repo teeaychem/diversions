@@ -27,6 +27,7 @@ target_include_directories(${PROJECT_NAME}
 
 set(public_headers
     include/combinatorics.hpp
+    include/location.hpp
     include/strings.hpp)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${public_headers}")

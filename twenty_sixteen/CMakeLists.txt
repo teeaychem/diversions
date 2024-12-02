@@ -11,3 +11,7 @@ list(APPEND CMAKE_PREFIX_PATH "../advent_lib/install/")
 find_package(advent 0.0.1 CONFIG REQUIRED)
 
 add_executable(day_one days/day_one.cpp)
+target_link_libraries(day_one PRIVATE advent::advent)
+
+add_executable(day_two days/day_two.cpp)
+target_link_libraries(day_two PRIVATE advent::advent)
