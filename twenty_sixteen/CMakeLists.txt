@@ -5,6 +5,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
+find_package(OpenSSL REQUIRED)
+
 add_compile_options(-pedantic -Wall -Wextra)
 
 list(APPEND CMAKE_PREFIX_PATH "../advent_lib/install/")
@@ -19,3 +21,6 @@ target_link_libraries(day_two PRIVATE advent::advent)
 add_executable(day_three days/day_three.cpp)
 
 add_executable(day_four days/day_four.cpp)
+
+add_executable(day_five days/day_five.cpp)
+target_link_libraries(day_five PRIVATE OpenSSL::SSL)

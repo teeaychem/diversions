@@ -13,7 +13,7 @@ find_package(advent 0.0.1 CONFIG REQUIRED)
 find_package(OpenSSL REQUIRED)
 
 # hard coded as fails to be found otherwise…
-set(nlohmann_json_DIR ./vcpkg_installed/arm64-linux/share/nlohmann_json/)
+set(nlohmann_json_DIR ../vcpkg_installed/arm64-linux/share/nlohmann_json/)
 find_package(nlohmann_json CONFIG REQUIRED)
 
 add_executable(day_one days/day_one.cpp)
