@@ -26,3 +26,4 @@ add_executable(20161205 days/20161205.cpp)
 target_link_libraries(20161205 PRIVATE OpenSSL::SSL)
 
 add_executable(20161206 days/20161206.cpp)
+add_executable(20161207 days/20161207.cpp)
