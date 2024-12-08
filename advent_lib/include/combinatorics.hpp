@@ -8,13 +8,12 @@ void size_k_vectors_helper(std::vector<std::vector<element>> &variations,
                            std::vector<element> &used, std::vector<element> &v,
                            int k) {
   if (k == 0) {
-    std::vector<element> the_copy{};
-    copy(used.begin(), used.end(), back_inserter(the_copy));
+    std::vector<element> the_copy = used;
     variations.push_back(the_copy);
   } else if (v.empty()) {
     return;
   } else {
-    int last = v.back();
+    element last = v.back();
     v.pop_back();
     size_k_vectors_helper(variations, used, v, k);
     used.push_back(last);
@@ -54,10 +53,10 @@ permute(std::unordered_set<element> elements) {
 }
 
 template <typename element>
-void display_permutations(std::vector<std::vector<element>> *permutations) {
-  for (size_t p = 0; p < permutations->size(); p++) {
-    std::vector<element> permutation = permutations->data()[p];
-    std::cout << "(  ";
+void display_permutations(std::vector<std::vector<element>> &permutations) {
+  for (size_t p = 0; p < permutations.size(); p++) {
+    std::vector<element> permutation = permutations.data()[p];
+    std::cout << "( ";
     for (size_t i = 0; i < permutation.size(); i++) {
       std::cout << permutation[i] << " ";
     }
@@ -66,11 +65,12 @@ void display_permutations(std::vector<std::vector<element>> *permutations) {
 }
 
 template <typename element>
-std::vector<std::vector<element>> size_k_vectors(std::vector<element> &v,
+std::vector<std::vector<element>> size_k_vectors(std::vector<element> const &v,
                                                  int k) {
   std::vector<std::vector<element>> variations{};
   std::vector<element> buffer;
-  size_k_vectors_helper(variations, buffer, v, k);
+  std::vector<element> vc = v;
+  size_k_vectors_helper(variations, buffer, vc, k);
   return variations;
 }
 

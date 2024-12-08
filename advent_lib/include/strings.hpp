@@ -7,5 +7,17 @@ namespace string {
 std::vector<std::string> string_split_delim(std::string input,
                                             std::string delimiter);
 
-} // namespace string_lib
-} // namespace aoc
+template <typename element>
+std::string join(const element &v, const std::string &delimiter) {
+  std::string s{};
+  for (auto &e : v) {
+    if (e != v[0]) {
+      s += delimiter;
+    }
+    s += e;
+  }
+  return s;
+}
+
+} // namespace string
+} // namespace advent
