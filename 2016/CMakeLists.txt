@@ -33,3 +33,5 @@ add_executable(20161210 days/20161210.cpp)
 
 add_executable(20161211 days/20161211.cpp)
 target_link_libraries(20161211 PRIVATE advent::advent)
+
+add_executable(20161212 days/20161212.cpp)
