@@ -42,3 +42,5 @@ target_link_libraries(20161213 PRIVATE advent::advent)
 add_executable(20161214 days/20161214.cpp)
 target_link_libraries(20161214 PRIVATE OpenSSL::SSL)
 target_link_libraries(20161214 PRIVATE advent::advent)
+
+add_executable(20161215 days/20161215.cpp)
