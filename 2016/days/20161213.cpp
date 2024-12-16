@@ -31,7 +31,8 @@ int main(int argc, char **argv) {
 
   auto empty_h = [](int node) { return 0.0; };
 
-  auto test_cost_path = test.a_star(1, 6, empty_h);
+  auto test_goal_f = [](auto current) -> bool { return current == 6; };
+  auto test_cost_path = test.a_star(1, test_goal_f, empty_h);
   if (test_cost_path.has_value()) {
     cout << "cost: " << test_cost_path.value().first << endl;
     for (auto x : test_cost_path.value().second) {
@@ -85,7 +86,8 @@ int main(int argc, char **argv) {
     }
   }
 
-  auto cost_path = g.a_star(node_rep(1, 1), node_rep(31, 39), empty_h);
+  auto goal_f = [](auto current) -> bool { return current == node_rep(31, 39); };
+  auto cost_path = g.a_star(node_rep(1, 1), goal_f, empty_h);
   if (cost_path.has_value()) {
     cout << "cost: " << cost_path.value().first << endl;
     for (auto x : cost_path.value().second) {
@@ -93,20 +95,20 @@ int main(int argc, char **argv) {
     }
   }
 
-  unordered_set<int> two{};
-  for (int y = 0; y < 51; y++) {
-    for (int x = 0; x < 51; x++) {
-      auto cost_path_two = g.a_star(node_rep(1, 1), node_rep(x, y), empty_h);
-      if (cost_path_two.has_value()) {
-        cout << "cost " << x << "," << y << " : " << cost_path_two.value().first
-             << endl;
-        if (cost_path_two.value().first < 51) {
-          two.insert(node_rep(x, y));
-        }
-      }
-    }
-  }
-  cout << "hm: " << two.size() << endl;
+  // unordered_set<int> two{};
+  // for (int y = 0; y < 51; y++) {
+  //   for (int x = 0; x < 51; x++) {
+  //     auto cost_path_two = g.a_star(node_rep(1, 1), node_rep(x, y), empty_h);
+  //     if (cost_path_two.has_value()) {
+  //       cout << "cost " << x << "," << y << " : " << cost_path_two.value().first
+  //            << endl;
+  //       if (cost_path_two.value().first < 51) {
+  //         two.insert(node_rep(x, y));
+  //       }
+  //     }
+  //   }
+  // }
+  // cout << "hm: " << two.size() << endl;
 
   return 0;
 }

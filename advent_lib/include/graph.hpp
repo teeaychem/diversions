@@ -83,7 +83,7 @@ public:
     }
   }
 
-  optional<pair<int, vector<node_t>>> a_star(node_t start, node_t goal,
+  optional<pair<int, vector<node_t>>> a_star(node_t start, std::function<bool(node_t)> goal_f,
                                              std::function<cost_t(node_t)> h) {
 
     set<DiscoveredNode<node_t>, std::less<>> unexplored_nodes{};
@@ -111,9 +111,9 @@ public:
 
     while (!the_queue.empty()) {
       node_t current = the_queue.top();
-      if (current == goal) {
+      if (goal_f(current)) {
         DiscoveredNode<node_t> the_last;
-        the_last = *unexplored_nodes.find(goal);
+        the_last = *unexplored_nodes.find(current);
         auto the_cost = the_last.cheapest;
 
         vector<node_t> the_path{};
