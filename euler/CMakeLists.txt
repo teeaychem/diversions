@@ -15,5 +15,27 @@ find_package(cvc5)
 #   message(FATAL_ERROR "cvc5 not found")
 #  endif()
 
+add_executable(multiples_of_three_or_five multiples_of_three_or_five.cpp)
+
+add_executable(even_fibonacci_numbers even_fibonacci_numbers.cpp)
+
+add_executable(largest_prime_factor largest_prime_factor.cpp)
+
+add_executable(largest_palindrome_product largest_palindrome_product.cpp)
+
+add_executable(smallest_multiple smallest_multiple.cpp)
+
+add_executable(sum_square_difference sum_square_difference.cpp)
+
+add_executable(10001st_prime 10001st_prime.cpp)
+
+add_executable(largest_product_in_a_series largest_product_in_a_series.cpp)
+
 add_executable(special_pythagorean_triplet special_pythagorean_triplet.cpp)
 target_link_libraries(special_pythagorean_triplet cvc5::cvc5 cvc5::cvc5parser)
+
+add_executable(summation_of_primes summation_of_primes.cpp)
+
+add_executable(largest_product_in_a_grid largest_product_in_a_grid.cpp)
+
+add_executable(highly_divisible_triangular_number highly_divisible_triangular_number.cpp)
