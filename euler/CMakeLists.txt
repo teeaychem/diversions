@@ -4,7 +4,6 @@ project(smt CXX)
 set(CMAKE_CXX_STANDARD 23)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-message("Prefix path: ${CMAKE_PREFIX_PATH}")
 
 
 find_package(cvc5)
@@ -39,3 +38,11 @@ add_executable(summation_of_primes summation_of_primes.cpp)
 add_executable(largest_product_in_a_grid largest_product_in_a_grid.cpp)
 
 add_executable(highly_divisible_triangular_number highly_divisible_triangular_number.cpp)
+
+add_executable(large_sum large_sum.cpp)
+
+add_executable(longest-collatz-sequence longest-collatz-sequence.cpp)
+
+add_executable(factorial-digit-sum factorial-digit-sum.cpp)
+
+add_executable(maximum-path-sum-1 maximum-path-sum-1.cpp)
