@@ -1,18 +1,16 @@
 cmake_minimum_required(VERSION 3.20)
-project(smt CXX)
+project(euler CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-
 find_package(cvc5)
 
-
-# add_library(CVC5 REQUIRED)
-# if(NOT CVC5)
-#   message(FATAL_ERROR "cvc5 not found")
-#  endif()
+add_library(CVC5 REQUIRED)
+if(NOT CVC5)
+  message(FATAL_ERROR "cvc5 not found")
+ endif()
 
 add_executable(multiples_of_three_or_five multiples_of_three_or_five.cpp)
 
@@ -45,4 +43,4 @@ add_executable(longest-collatz-sequence longest-collatz-sequence.cpp)
 
 add_executable(factorial-digit-sum factorial-digit-sum.cpp)
 
-add_executable(maximum-path-sum-1 maximum-path-sum-1.cpp)
+add_executable(maximum-path-sum maximum-path-sum.cpp)
