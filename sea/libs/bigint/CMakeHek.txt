@@ -1,0 +1,8 @@
+cmake .. && cmake --build . && cmake --install . --prefix install
+
+https://cmake.org/cmake/help/git-stage/guide/importing-exporting/index.html#exporting-targets
+https://gitlab.kitware.com/cmake/cmake/-/blob/master/Help/guide/importing-exporting/MathFunctions/CMakeLists.txt?ref_type=heads
+https://github.com/retifrav/cmake-library-example/blob/master/internal-project/libraries/SomeLibrary/cmake/Installing.cmake
+
+- With a namespace set linking requires use of the namespace.
+- 
