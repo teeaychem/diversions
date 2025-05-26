@@ -1,16 +1,14 @@
 cmake_minimum_required(VERSION 3.20)
 project(euler CXX)
 
-set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(cvc5)
 
-add_library(CVC5 REQUIRED)
-if(NOT CVC5)
-  message(FATAL_ERROR "cvc5 not found")
- endif()
+find_package(BigInt CONFIG REQUIRED PATHS "../sea/libs/bigint/build/install/")
+message("PREFIX ${CMAKE_PREFIX_PATH}")
 
 add_executable(multiples_of_three_or_five multiples_of_three_or_five.cpp)
 
@@ -38,6 +36,7 @@ add_executable(largest_product_in_a_grid largest_product_in_a_grid.cpp)
 add_executable(highly_divisible_triangular_number highly_divisible_triangular_number.cpp)
 
 add_executable(large_sum large_sum.cpp)
+target_link_libraries(large_sum PRIVATE BigInt::BigInt)
 
 add_executable(longest-collatz-sequence longest-collatz-sequence.cpp)
 
