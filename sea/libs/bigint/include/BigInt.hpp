@@ -18,6 +18,7 @@ class Int {
   // Convenience
   void strip_leading_zeros();
   bool leq_int64_sqrt() const;
+  bool leq_int32_sqrt() const;
 
 public:
   // Convenience
@@ -28,16 +29,22 @@ public:
   };
 
   bool is_powerof10() const;
-  Int pow10(size_t);
+  Int pow10(size_t) const;
 
-  std::pair<Int, Int> split(size_t pos) const;
+  inline std::vector<uint8_t>::const_reverse_iterator begin() const {
+    return this->value.crbegin();
+  };
+
+  inline std::vector<uint8_t>::const_reverse_iterator end() const {
+    return this->value.crend();
+  };
+
+  std::pair<std::optional<Int>, std::optional<Int>> abs_split(size_t pos) const;
 
   // Streams:
   friend std::ostream &operator<<(std::ostream &, const Int &);
 
   // Unary ops
-  Int operator-() const;
-
   Int();
   Int(const std::string &);
   Int(const int64_t &);
@@ -51,6 +58,8 @@ public:
   friend Int multiply(const BigInt::Int &a, const BigInt::Int &b);
 
   // Overloads
+  inline Int operator-() const;
+
   inline Int operator+(const Int &num) const { return add(*this, num); };
   inline Int operator-(const Int &num) const { return subtract(*this, num); };
   inline Int operator*(const Int &num) const { return multiply(*this, num); };
@@ -84,6 +93,6 @@ Int add(const BigInt::Int &a, const BigInt::Int &b);
 Int subtract(const BigInt::Int &a, const BigInt::Int &b);
 Int multiply(const BigInt::Int &a, const BigInt::Int &b);
 
-bool leq(const BigInt::Int &a, const BigInt::Int &b);
+bool abs_lt(const BigInt::Int &a, const BigInt::Int &b);
 
 } // namespace BigInt

@@ -1,4 +1,5 @@
 #include "BigInt.hpp"
+#include <cmath>
 #include <cstdint>
 #include <string>
 
@@ -18,18 +19,9 @@ BigInt::Int BigInt::Int::operator-() const {
 BigInt::Int BigInt::add(const BigInt::Int &a, const BigInt::Int &b) {
 
   if (a.sign && !b.sign) {
-    BigInt::Int c = b;
-    c.sign = true;
-
-    return BigInt::subtract(a, c);
+    return (a - -b);
   } else if (!a.sign && b.sign) {
-    BigInt::Int c = a;
-    c.sign = true;
-
-    c = BigInt::subtract(c, b);
-    c.sign = false;
-
-    return c;
+    return b - -a;
   }
 
   Int result = BigInt::Int();
@@ -67,12 +59,24 @@ BigInt::Int BigInt::add(const BigInt::Int &a, const BigInt::Int &b) {
 
 BigInt::Int BigInt::subtract(const BigInt::Int &a, const BigInt::Int &b) {
 
+  if (a.sign && !b.sign) {
+    return (a + -b);
+  }
+
+  if (!a.sign && b.sign) {
+    return -(-a + b);
+  }
+
   Int result = BigInt::Int();
 
-  bool a_leq_b = leq(a, b);
+  bool a_abs_lt_b = abs_lt(a, b);
 
-  const BigInt::Int &l = a_leq_b ? a : b;
-  BigInt::Int h = a_leq_b ? b : a;
+  const BigInt::Int &l = a_abs_lt_b ? a : b;
+  BigInt::Int h = a_abs_lt_b ? b : a;
+
+  if ((a_abs_lt_b && b.sign) || (!b.sign)) {
+    result.sign = false;
+  }
 
   for (int i = 0; i < h.size(); ++i) {
     if (l.size() <= i) {
@@ -104,46 +108,58 @@ BigInt::Int BigInt::subtract(const BigInt::Int &a, const BigInt::Int &b) {
 
   result.strip_leading_zeros();
 
-  if (!result.is_zero()) {
-    result.sign = !a_leq_b;
+  if (result.is_zero()) {
+    result.sign = true;
   }
 
   return result;
 }
 
-// Karatsuba with int64_t base case.
+// Karatsuba with sqrt(int64_t::MAX) base case.
 BigInt::Int BigInt::multiply(const BigInt::Int &a, const BigInt::Int &b) {
 
+  if (a.is_zero() || b.is_zero()) {
+    return BigInt::Int(0);
+  }
+
   // Base case.
+
   if (a.leq_int64_sqrt() && b.leq_int64_sqrt()) {
-    // a[b] ≤ sqrt(int64_max) and so the try succeeds.
+    // a, b ≤ sqrt(int64_max) and so the try succeeds.
     int64_t a64 = a.try_int64().value();
     int64_t b64 = b.try_int64().value();
+
     return BigInt::Int(std::to_string(a64 * b64));
   }
 
   // Recursive case.
-  size_t split_pos = std::max(a.size(), b.size()) / 2;
-  size_t split_pow = ceil(std::max(a.size(), b.size()) / 2.0);
 
-  auto [a_high, a_low] = a.split(split_pos);
-  auto [b_high, b_low] = b.split(split_pos);
+  size_t split_pow = std::max(a.size(), b.size()) / 2;
 
-  auto z_high = (a_high * b_high);
-  auto z_low = (a_low * b_low);
+  auto [a_high, a_low] = a.abs_split(split_pow);
+  auto [b_high, b_low] = b.abs_split(split_pow);
 
-  auto z_mid = (((a_high + a_low) * (b_high + b_low)) - (z_high + z_low));
+  auto a_high_val = a_high.value_or(BigInt::Int(0));
+  auto a_low_val = a_low.value_or(BigInt::Int(0));
+  auto b_high_val = b_high.value_or(BigInt::Int(0));
+  auto b_low_val = b_low.value_or(BigInt::Int(0));
 
-  z_high.pow10(2 * split_pow);
-  z_mid.pow10(split_pow);
+  auto z_high = (a_high_val * b_high_val);
+  auto z_low = (a_low_val * b_low_val);
 
-  auto z = ((z_high + z_mid) + z_low);
+  auto a_sum = (a_high_val + a_low_val);
+  auto b_sum = (b_low_val + b_high_val);
 
-  if (a.sign == b.sign) {
-    z.sign = true;
-  } else {
-    z.sign = false;
-  }
+  auto z_sum_mul = (a_sum * b_sum);
+
+  auto z_mid = (z_sum_mul - z_high - z_low);
+
+  auto z_high_pow = z_high.pow10(2 * split_pow);
+  auto z_mid_pow = z_mid.pow10(split_pow);
+
+  BigInt::Int z = ((z_high_pow + z_mid_pow) + z_low);
+
+  z.sign = (a.sign == b.sign);
 
   return z;
 }

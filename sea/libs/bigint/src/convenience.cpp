@@ -1,5 +1,6 @@
 #include "BigInt.hpp"
 #include <cstdint>
+#include <optional>
 #include <utility>
 
 // Private
@@ -28,6 +29,24 @@ bool BigInt::Int::leq_int64_sqrt() const {
   }
 }
 
+bool BigInt::Int::leq_int32_sqrt() const {
+  static int8_t int64_sqrt_digits[] = {6, 3, 5, 5, 6};
+
+  if (this->size() < 5) {
+    return true;
+  } else if (this->size() == 5) {
+
+    for (int i = 0; i < 5; ++i) {
+      if (int64_sqrt_digits[i] < this->digit(i)) {
+        return false;
+      }
+    }
+    return true;
+  } else {
+    return false;
+  }
+}
+
 // Public
 
 bool BigInt::Int::is_powerof10() const {
@@ -44,47 +63,66 @@ bool BigInt::Int::is_powerof10() const {
   return true;
 }
 
-BigInt::Int BigInt::Int::pow10(size_t n) {
+BigInt::Int BigInt::Int::pow10(size_t n) const {
+
+  BigInt::Int raised(*this);
+
   if (n == 0) {
-    this->value.clear();
-    this->value.push_back(1);
+    raised.value.clear();
+    raised.value.push_back(1);
   } else {
 
-    size_t swap_limit = this->size();
+    size_t swap_limit = raised.size();
 
     for (int i = 0; i < n; ++i) {
-      this->value.push_back(0);
+      raised.value.push_back(0);
     }
 
-    for (int i = this->size() - 1; n <= i; --i) {
-      this->value[i] = this->value[i - n];
+    for (int i = raised.size() - 1; n <= i; --i) {
+      raised.value[i] = raised.value[i - n];
     }
     for (int i = 0; i < n; ++i) {
-      this->value[i] = 0;
+      raised.value[i] = 0;
     }
   }
 
-  return *this;
+  raised.strip_leading_zeros();
+
+  return raised;
 }
 
-std::pair<BigInt::Int, BigInt::Int> BigInt::Int::split(size_t pos) const {
+std::pair<std::optional<BigInt::Int>, std::optional<BigInt::Int>>
+BigInt::Int::abs_split(size_t pos) const {
 
-  BigInt::Int high{};
-  BigInt::Int low{};
+  std::optional<BigInt::Int> low = std::nullopt;
+  std::optional<BigInt::Int> high = std::nullopt;
 
-  size_t i{0};
-
-  for (; i < pos; ++i) {
-    low.value.push_back(this->digit(i));
+  if (pos == 0) {
+    high = BigInt::Int(*this);
+    goto endsplit;
   }
 
-  if (i < this->size()) {
-    for (; i < this->size(); ++i) {
-      high.value.push_back(this->digit(i));
+  {
+    size_t i{0};
+    low = BigInt::Int();
+
+    for (; i < std::min(pos, this->size()); ++i) {
+      low.value().value.push_back(this->digit(i));
     }
-  } else {
-    high.value.push_back(0);
+
+    low.value().strip_leading_zeros();
+
+    if (i < this->size()) {
+      high = BigInt::Int();
+      for (; i < this->size(); ++i) {
+        high.value().value.push_back(this->digit(i));
+      }
+      high.value().strip_leading_zeros();
+
+      goto endsplit;
+    }
   }
 
+endsplit:
   return std::make_pair(high, low);
 }
