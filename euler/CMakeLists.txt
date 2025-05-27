@@ -7,7 +7,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(cvc5)
 
-find_package(BigInt CONFIG REQUIRED PATHS "../sea/libs/bigint/build/install/")
+find_package(BigInt CONFIG REQUIRED PATHS "../sea/libs/bigint/install/")
 message("PREFIX ${CMAKE_PREFIX_PATH}")
 
 add_executable(multiples_of_three_or_five multiples_of_three_or_five.cpp)
