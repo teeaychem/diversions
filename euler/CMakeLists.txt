@@ -44,3 +44,6 @@ target_link_libraries(factorial_digit_sum PRIVATE BigInt::BigInt)
 add_executable(longest_collatz_sequence longest_collatz_sequence.cpp)
 
 add_executable(maximum_path_sum maximum_path_sum.cpp)
+
+add_executable(1000_digit_fibonacci 1000_digit_fibonacci.cpp)
+target_link_libraries(1000_digit_fibonacci PRIVATE BigInt::BigInt)
