@@ -1,8 +1,13 @@
 cmake .. && cmake --build . && cmake --install . --prefix install
 
 https://cmake.org/cmake/help/git-stage/guide/importing-exporting/index.html#exporting-targets
+
 https://gitlab.kitware.com/cmake/cmake/-/blob/master/Help/guide/importing-exporting/MathFunctions/CMakeLists.txt?ref_type=heads
+
 https://github.com/retifrav/cmake-library-example/blob/master/internal-project/libraries/SomeLibrary/cmake/Installing.cmake
 
+https://iamsorush.com/posts/cpp-cmake-build/
+
 - With a namespace set linking requires use of the namespace.
-- 
+
+- CMAKE_MODULE_PATH is a list, so append: https://stackoverflow.com/questions/52730397/how-can-i-set-cmake-module-path-for-doing-regular-and-out-of-source-builds-in-cm
