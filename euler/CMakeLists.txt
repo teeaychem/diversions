@@ -38,6 +38,9 @@ add_executable(highly_divisible_triangular_number highly_divisible_triangular_nu
 add_executable(large_sum large_sum.cpp)
 target_link_libraries(large_sum PRIVATE BigInt::BigInt)
 
+add_executable(factorial_digit_sum factorial_digit_sum.cpp)
+target_link_libraries(factorial_digit_sum PRIVATE BigInt::BigInt)
+
 add_executable(longest_collatz_sequence longest_collatz_sequence.cpp)
 
 add_executable(maximum_path_sum maximum_path_sum.cpp)
