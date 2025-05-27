@@ -46,15 +46,17 @@ BigInt::Int::Int(const std::string &num) {
       throw std::invalid_argument("");
     }
   }
+
+  this->strip_leading_zeros();
 }
 
-BigInt::Int::Int(const Int &big_int) {
-  sign = big_int.sign;
-  value = big_int.value;
+BigInt::Int::Int(const Int &other) {
+  sign = other.sign;
+  value = other.value;
 }
 
 std::ostream &BigInt::operator<<(std::ostream &out, const BigInt::Int &num) {
-  if (!(num.sign)) {
+  if (!num.sign) {
     out << '-';
   }
 

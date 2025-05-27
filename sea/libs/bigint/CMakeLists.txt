@@ -12,7 +12,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-option(BUILD_TESTS "Build tests")
+option(BUILD_TESTS "Build tests" ON)
 
 add_library(${PROJECT_NAME})
 
