@@ -4,17 +4,18 @@ target_sources(
         problems.hpp
         #
         coin_sums.cpp
+        factorial_digit_sum.cpp
         highly_divisible_triangular_number.cpp
         large_fibonacci.cpp
         large_sum.cpp
         largest_product_in_a_grid.cpp
         largest_product_in_a_series.cpp
+        lattice_paths.cpp
         longest_collatz_sequence.cpp
         maximum_path_sum.cpp
+        name_scores.cpp
+        power_digit_sum.cpp
         problems_one_to_nine.cpp
         special_pythagorean_triplet.cpp
         summation_of_primes.cpp
-        name_scores.cpp
-        factorial_digit_sum.cpp
-        power_digit_sum.cpp
 )

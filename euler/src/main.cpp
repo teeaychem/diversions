@@ -99,9 +99,13 @@ int main(int argc, char *argv[]) {
     longest_collatz_sequence();
   }
 
-  else if (problem == 16){
+  else if (problem == 15) {
+    lattice_paths();
+  }
+
+  else if (problem == 16) {
     power_digit_sum();
-}
+  }
 
   else if (problem == 18) {
     std::ifstream file = get_ifsteam_at_arg(argc, argv, 2);
