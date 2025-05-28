@@ -107,6 +107,10 @@ int main(int argc, char *argv[]) {
     power_digit_sum();
   }
 
+  else if (problem == 17) {
+    number_letter_counts();
+  }
+
   else if (problem == 18) {
     std::ifstream file = get_ifsteam_at_arg(argc, argv, 2);
     maximum_path_sum(file);
