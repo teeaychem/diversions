@@ -16,4 +16,5 @@ target_sources(
         summation_of_primes.cpp
         name_scores.cpp
         factorial_digit_sum.cpp
+        power_digit_sum.cpp
 )
