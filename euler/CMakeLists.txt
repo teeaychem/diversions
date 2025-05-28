@@ -33,7 +33,10 @@ add_executable(summation_of_primes summation_of_primes.cpp)
 
 add_executable(largest_product_in_a_grid largest_product_in_a_grid.cpp)
 
-add_executable(highly_divisible_triangular_number highly_divisible_triangular_number.cpp)
+add_executable(
+    highly_divisible_triangular_number
+    highly_divisible_triangular_number.cpp
+)
 
 add_executable(large_sum large_sum.cpp)
 target_link_libraries(large_sum PRIVATE BigInt::BigInt)
@@ -49,3 +52,5 @@ add_executable(1000_digit_fibonacci 1000_digit_fibonacci.cpp)
 target_link_libraries(1000_digit_fibonacci PRIVATE BigInt::BigInt)
 
 add_executable(name_scores name_scores.cpp)
+
+add_executable(coin_sums coin_sums.cpp)
