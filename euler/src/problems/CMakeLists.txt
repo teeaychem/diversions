@@ -14,6 +14,7 @@ target_sources(
         longest_collatz_sequence.cpp
         maximum_path_sum.cpp
         name_scores.cpp
+        number_letter_counts.cpp
         power_digit_sum.cpp
         problems_one_to_nine.cpp
         special_pythagorean_triplet.cpp
