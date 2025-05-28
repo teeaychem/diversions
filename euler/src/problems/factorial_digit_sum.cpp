@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int main() {
+void factorial_digit_sum() {
   BigInt::Int factorial = BigInt::Int(1);
 
   for (int64_t i = 2; i <= 100; ++i) {

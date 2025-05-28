@@ -5,9 +5,7 @@
 
 using namespace std;
 
-int main(int argc, char **argv) {
-
-  ifstream infile(argv[1]);
+void large_sum(ifstream &infile) {
 
   BigInt::Int big_sum = BigInt::Int("0");
 
@@ -17,5 +15,5 @@ int main(int argc, char **argv) {
 
   cout << big_sum << "\n";
 
-  return 0;
+
 }

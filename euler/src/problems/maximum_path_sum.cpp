@@ -7,12 +7,11 @@
 
 using namespace std;
 
-int main(int argc, char *argv[]) {
+void maximum_path_sum(ifstream &triangle_file) {
 
   vector<vector<int>> triangle = {};
 
   string line;
-  ifstream triangle_file("triangle.txt");
 
   if (triangle_file.is_open()) {
     while (getline(triangle_file, line)) {

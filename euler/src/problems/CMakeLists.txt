@@ -1,0 +1,19 @@
+target_sources(
+    euler
+    PRIVATE
+        problems.hpp
+        #
+        coin_sums.cpp
+        highly_divisible_triangular_number.cpp
+        large_fibonacci.cpp
+        large_sum.cpp
+        largest_product_in_a_grid.cpp
+        largest_product_in_a_series.cpp
+        longest_collatz_sequence.cpp
+        maximum_path_sum.cpp
+        problems_one_to_nine.cpp
+        special_pythagorean_triplet.cpp
+        summation_of_primes.cpp
+        name_scores.cpp
+        factorial_digit_sum.cpp
+)

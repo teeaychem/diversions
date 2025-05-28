@@ -1,22 +1,17 @@
-#include <cstddef>
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <sys/_types/_int64_t.h>
 #include <vector>
 using namespace std;
 
-int main(int argc, char **argv) {
-
-  int64_t n = stoi(argv[1]);
+void largest_product_in_a_grid(int n, ifstream &infile) {
 
   stringstream ss{};
   string word_buffer{};
 
   pmr::vector<vector<int>> grid{};
 
-  ifstream infile(argv[2]);
   for (string line; getline(infile, line);) {
 
     ss << line;

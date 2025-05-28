@@ -16,7 +16,7 @@ int collatz_length(unsigned long long n) {
   return steps;
 }
 
-int main() {
+void longest_collatz_sequence() {
 
   int max_n{1};
   int max_length{1};
