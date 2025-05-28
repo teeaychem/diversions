@@ -1,13 +1,10 @@
 #include <cvc5/cvc5.h>
-#include <fstream>
 #include <iostream>
-#include <string>
-#include <vector>
 
 using namespace std;
 using namespace cvc5;
 
-int main(int argc, char **argv) {
+int special_pythagorean_triplet() {
 
   TermManager tm;
   Solver solver = Solver(tm);

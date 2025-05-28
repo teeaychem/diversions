@@ -1,13 +1,10 @@
 #include <iostream>
-#include <string>
 #include <sys/_types/_u_int64_t.h>
 #include <vector>
 
 using namespace std;
 
-int main(int argc, char **argv) {
-
-  u_int64_t n = stoi(argv[1]);
+int summation_of_primes(int n) {
 
   vector<bool> sieve(n, true);
 

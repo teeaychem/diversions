@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int main() {
+void large_fibonacci() {
   size_t index{2};
   BigInt::Int a{1};
   BigInt::Int b{1};

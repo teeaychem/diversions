@@ -6,9 +6,8 @@
 
 using namespace std;
 
-int main(int argc, char *argv[]) {
+void name_scores(ifstream &infile) {
 
-  ifstream infile(argv[1]);
   vector<pair<string, size_t>> names{};
   names.reserve(5000);
 

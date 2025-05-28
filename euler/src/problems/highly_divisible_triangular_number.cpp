@@ -18,7 +18,7 @@ int64_t factors(int64_t n) {
   return count;
 }
 
-int main(int argc, char **argv) {
+void highly_divisible_triangular_number() {
 
   int64_t i = 1;
   int64_t triangle = 1;
@@ -37,6 +37,4 @@ int main(int argc, char **argv) {
   }
 
   cout << triangle << " " << f << endl;
-
-  return 0;
 }

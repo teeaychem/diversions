@@ -5,14 +5,11 @@
 
 using namespace std;
 
-int main(int argc, char **argv) {
-
-  int64_t subsequence_length = stoi(argv[1]);
+void largest_product_in_a_series(int subsequence_length, ifstream &infile) {
 
   // Given as a text file of contiguous digits on a single line.
   vector<int64_t> sequence{};
 
-  ifstream infile(argv[2]);
   for (string line; getline(infile, line);) {
     for (size_t i = 0; i < line.size(); i++) {
       sequence.push_back(line[i] - '0');
@@ -79,5 +76,4 @@ int main(int argc, char **argv) {
 
   cout << max_product << endl;
 
-  return 0;
 }
