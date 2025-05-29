@@ -2,6 +2,7 @@
 #include <fstream>
 
 void coin_sums();
+void counting_sundays();
 void even_fibonacci_numbers(int limit);
 void factorial_digit_sum();
 void highly_divisible_triangular_number();
