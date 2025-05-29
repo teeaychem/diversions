@@ -123,6 +123,11 @@ int main(int argc, char *argv[]) {
     name_scores(file);
   } break;
 
+  case 23: {
+    non_abundant_sums();
+    break;
+  }
+
   case 25:
     large_fibonacci();
     break;
