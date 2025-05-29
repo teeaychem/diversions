@@ -1,6 +1,7 @@
 
 #include <fstream>
 
+void amicable_numbers();
 void coin_sums();
 void counting_sundays();
 void even_fibonacci_numbers(int limit);

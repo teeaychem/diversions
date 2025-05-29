@@ -114,6 +114,10 @@ int main(int argc, char *argv[]) {
     factorial_digit_sum();
     break;
 
+  case 21:
+    amicable_numbers();
+    break;
+
   case 22: {
     std::ifstream file = ifstream_arg(2);
     name_scores(file);
