@@ -19,6 +19,7 @@ void longest_collatz_sequence();
 void maximum_path_sum(std::ifstream &triangle_file);
 void multiples_of_three_or_five(int limit);
 void name_scores(std::ifstream &infile);
+void non_abundant_sums();
 void number_letter_counts();
 void power_digit_sum();
 void smallest_multiple(int n);
