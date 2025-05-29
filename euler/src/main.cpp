@@ -2,24 +2,6 @@
 #include <fstream>
 #include <iostream>
 
-int get_int_at_arg(int argc, char *argv[], int arg) {
-  if (arg < argc) {
-    return atoi(argv[arg]);
-  } else {
-    std::cout << "Oh no" << "\n";
-    std::exit(-1);
-  }
-}
-
-std::ifstream get_ifsteam_at_arg(int argc, char *argv[], int arg) {
-  if (arg < argc) {
-    return std::ifstream(argv[arg]);
-  } else {
-    std::cout << "Could not open file given at argument " << arg - 1 << "\n";
-    std::exit(-1);
-  }
-}
-
 int main(int argc, char *argv[]) {
 
   if (argc == 1 || atol(argv[1]) <= 0) {
@@ -27,113 +9,125 @@ int main(int argc, char *argv[]) {
     return -1;
   }
 
+  auto int_arg = [&argc, &argv](int arg) {
+    if (arg < argc) {
+      return atoi(argv[arg]);
+    } else {
+      std::cout << "Oh no" << "\n";
+      std::exit(-1);
+    }
+  };
+
+  auto ifstream_arg = [&argc, &argv](int arg) {
+    if (arg < argc) {
+      return std::ifstream(argv[arg]);
+    } else {
+      std::cout << "Could not open file given at argument " << arg - 1 << "\n";
+      std::exit(-1);
+    }
+  };
+
   size_t problem{static_cast<size_t>(atol(argv[1]))};
 
-  if (problem == 1) {
+  switch (problem) {
+  case 1: {
+    multiples_of_three_or_five(int_arg(2));
+  } break;
 
-    int limit = get_int_at_arg(argc, argv, 2);
-    multiples_of_three_or_five(limit);
-  }
+  case 2: {
+    even_fibonacci_numbers(int_arg(2));
+  } break;
 
-  else if (problem == 2) {
-    int limit = get_int_at_arg(argc, argv, 2);
-    even_fibonacci_numbers(limit);
-  }
+  case 3: {
+    largest_prime_factor(int_arg(2));
+  } break;
 
-  else if (problem == 3) {
-    int limit = get_int_at_arg(argc, argv, 2);
-    largest_prime_factor(limit);
-  }
+  case 4: {
+    largest_palindrome_product(int_arg(2));
+  } break;
 
-  else if (problem == 4) {
-    int limit = get_int_at_arg(argc, argv, 2);
-    largest_palindrome_product(limit);
-  }
+  case 5: {
+    smallest_multiple(int_arg(2));
+  } break;
 
-  else if (problem == 5) {
-    int n = get_int_at_arg(argc, argv, 2);
-    smallest_multiple(n);
-  }
+  case 6: {
+    sum_square_difference(int_arg(2));
+  } break;
 
-  else if (problem == 6) {
-    int n = get_int_at_arg(argc, argv, 2);
-    sum_square_difference(n);
-  }
+  case 7: {
+    ith_prime(int_arg(2));
+  } break;
 
-  else if (problem == 7) {
-    int n = get_int_at_arg(argc, argv, 2);
-    ith_prime(n);
-  }
+  case 8: {
+    std::ifstream file = ifstream_arg(3);
+    largest_product_in_a_series(int_arg(2), file);
+  } break;
 
-  else if (problem == 8) {
-    int n = get_int_at_arg(argc, argv, 2);
-    std::ifstream file = get_ifsteam_at_arg(argc, argv, 3);
-    largest_product_in_a_series(n, file);
-  }
-
-  else if (problem == 9) {
+  case 9: {
     special_pythagorean_triplet();
-  }
+  } break;
 
-  else if (problem == 10) {
-    int n = get_int_at_arg(argc, argv, 2);
-    summation_of_primes(n);
-  }
+  case 10: {
+    summation_of_primes(int_arg(2));
+  } break;
 
-  else if (problem == 11) {
-    int n = get_int_at_arg(argc, argv, 2);
-    std::ifstream file = get_ifsteam_at_arg(argc, argv, 3);
-    largest_product_in_a_grid(n, file);
-  }
+  case 11: {
+    std::ifstream file = ifstream_arg(3);
+    largest_product_in_a_grid(int_arg(2), file);
+  } break;
 
-  else if (problem == 12) {
+  case 12:
     highly_divisible_triangular_number();
-  }
+    break;
 
-  else if (problem == 13) {
-    std::ifstream file = get_ifsteam_at_arg(argc, argv, 2);
+  case 13: {
+    std::ifstream file = ifstream_arg(2);
     large_sum(file);
-  }
+  } break;
 
-  else if (problem == 14) {
+  case 14:
     longest_collatz_sequence();
-  }
+    break;
 
-  else if (problem == 15) {
+  case 15:
     lattice_paths();
-  }
+    break;
 
-  else if (problem == 16) {
+  case 16:
     power_digit_sum();
-  }
+    break;
 
-  else if (problem == 17) {
+  case 17:
     number_letter_counts();
-  }
+    break;
 
-  else if (problem == 18) {
-    std::ifstream file = get_ifsteam_at_arg(argc, argv, 2);
+  case 18: {
+    std::ifstream file = ifstream_arg(2);
     maximum_path_sum(file);
-  }
+  } break;
 
-  else if (problem == 20) {
+  case 19:
+    counting_sundays();
+    break;
+
+  case 20:
     factorial_digit_sum();
-  }
+    break;
 
-  else if (problem == 22) {
-    std::ifstream file = get_ifsteam_at_arg(argc, argv, 2);
+  case 22: {
+    std::ifstream file = ifstream_arg(2);
     name_scores(file);
-  }
+  } break;
 
-  else if (problem == 25) {
+  case 25:
     large_fibonacci();
-  }
+    break;
 
-  else if (problem == 31) {
+  case 31:
     coin_sums();
-  }
+    break;
 
-  else {
+  default:
     std::cout << "Problem not yet attempted" << "\n";
   }
 }

@@ -4,6 +4,7 @@ target_sources(
         problems.hpp
         #
         coin_sums.cpp
+        counting_sundays.cpp;
         factorial_digit_sum.cpp
         highly_divisible_triangular_number.cpp
         large_fibonacci.cpp
