@@ -3,6 +3,7 @@ target_sources(
     PRIVATE
         problems.hpp
         #
+        amicable_numbers.cpp
         coin_sums.cpp
         counting_sundays.cpp;
         factorial_digit_sum.cpp
