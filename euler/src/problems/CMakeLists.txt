@@ -13,6 +13,7 @@ target_sources(
         largest_product_in_a_grid.cpp
         largest_product_in_a_series.cpp
         lattice_paths.cpp
+        lexicographic_permutations.cpp
         longest_collatz_sequence.cpp
         maximum_path_sum.cpp
         name_scores.cpp

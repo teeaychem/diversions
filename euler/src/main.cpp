@@ -125,16 +125,19 @@ int main(int argc, char *argv[]) {
 
   case 23: {
     non_abundant_sums();
-    break;
-  }
+  } break;
 
-  case 25:
+  case 24: {
+    lexicographic_permutations();
+  } break;
+
+  case 25: {
     large_fibonacci();
-    break;
+  } break;
 
-  case 31:
+  case 31: {
     coin_sums();
-    break;
+  } break;
 
   default:
     std::cout << "Problem not yet attempted" << "\n";
