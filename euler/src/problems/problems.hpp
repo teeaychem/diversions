@@ -15,6 +15,7 @@ void largest_prime_factor(int limit);
 void largest_product_in_a_grid(int n, std::ifstream &infile);
 void largest_product_in_a_series(int subsequence_length, std::ifstream &infile);
 void lattice_paths();
+void lexicographic_permutations();
 void longest_collatz_sequence();
 void maximum_path_sum(std::ifstream &triangle_file);
 void multiples_of_three_or_five(int limit);
