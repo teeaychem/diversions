@@ -135,6 +135,10 @@ int main(int argc, char *argv[]) {
     large_fibonacci();
   } break;
 
+  case 26: {
+    reciprocal_cycles();
+  } break;
+
   case 31: {
     coin_sums();
   } break;
