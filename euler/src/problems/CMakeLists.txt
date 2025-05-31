@@ -21,6 +21,7 @@ target_sources(
         number_letter_counts.cpp
         power_digit_sum.cpp
         problems_one_to_nine.cpp
+        reciprocal_cycles.cpp
         special_pythagorean_triplet.cpp
         summation_of_primes.cpp
 )
