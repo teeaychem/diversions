@@ -1,4 +1,4 @@
-#include "utils/utils.hpp"
+#include "utils/niche.hpp"
 #include <cstdint>
 #include <iostream>
 #include <vector>
@@ -10,7 +10,7 @@ void non_abundant_sums() {
   int64_t non_abundant_sum{0};
 
   for (int64_t n{12}; n <= 28123; ++n) {
-    if (euler::utils::proper_divisor_sum(n) > n) {
+    if (euler::niche::proper_divisor_sum(n) > n) {
       abundant_numbers.push_back(n);
     }
   }
