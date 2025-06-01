@@ -6,22 +6,29 @@ target_sources(
         amicable_numbers.cpp
         coin_sums.cpp
         counting_sundays.cpp;
+        even_fibonacci_numbers.cpp
         factorial_digit_sum.cpp
         highly_divisible_triangular_number.cpp
+        ith_prime.cpp
         large_fibonacci.cpp
         large_sum.cpp
+        largest_palindrome_product.cpp
+        largest_prime_factor.cpp
         largest_product_in_a_grid.cpp
         largest_product_in_a_series.cpp
         lattice_paths.cpp
         lexicographic_permutations.cpp
         longest_collatz_sequence.cpp
         maximum_path_sum.cpp
+        multiples_of_three_or_five.cpp
         name_scores.cpp
         non_abundant_sums.cpp
         number_letter_counts.cpp
         power_digit_sum.cpp
         problems_one_to_nine.cpp
         reciprocal_cycles.cpp
+        smallest_multiple.cpp
         special_pythagorean_triplet.cpp
+        sum_square_difference.cpp
         summation_of_primes.cpp
 )
