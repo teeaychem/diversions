@@ -23,6 +23,7 @@ void name_scores(std::ifstream &infile);
 void non_abundant_sums();
 void number_letter_counts();
 void power_digit_sum();
+void quadratic_primes();
 void reciprocal_cycles();
 void smallest_multiple(int n);
 void special_pythagorean_triplet();

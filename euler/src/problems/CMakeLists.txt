@@ -25,6 +25,7 @@ target_sources(
         non_abundant_sums.cpp
         number_letter_counts.cpp
         power_digit_sum.cpp
+        quadratic_primes.cpp
         reciprocal_cycles.cpp
         smallest_multiple.cpp
         special_pythagorean_triplet.cpp
