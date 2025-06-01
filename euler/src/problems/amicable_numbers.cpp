@@ -1,4 +1,4 @@
-#include "utils/utils.hpp"
+#include "utils/niche.hpp"
 #include <cstdint>
 #include <iostream>
 #include <set>
@@ -10,8 +10,8 @@ void amicable_numbers() {
 
   for (uint64_t i{1}; i < 10000; ++i) {
 
-    uint64_t pds = euler::utils::proper_divisor_sum(i);
-    if (pds != i && euler::utils::proper_divisor_sum(pds) == i) {
+    uint64_t pds = euler::niche::proper_divisor_sum(i);
+    if (pds != i && euler::niche::proper_divisor_sum(pds) == i) {
       amicalbe_pairs.insert(std::make_pair(std::min(i, pds), std::max(i, pds)));
     }
   }

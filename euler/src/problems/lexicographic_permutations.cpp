@@ -1,6 +1,6 @@
 #include "utils/utils.hpp"
+#include "utils/display.hpp"
 #include <cstdint>
-#include <iostream>
 #include <vector>
 
 void lexicographic_permutations() {
@@ -11,5 +11,5 @@ void lexicographic_permutations() {
     euler::utils::next_permutation(digits);
   }
 
-  euler::utils::cout_vector(digits, "");
+  euler::display::cout_vector(digits, "");
 };
