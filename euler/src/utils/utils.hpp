@@ -1,4 +1,6 @@
 #include <cstdint>
+#include <iostream>
+#include <utility>
 #include <vector>
 namespace euler {
 namespace utils {
@@ -37,6 +39,64 @@ use_pivot:
 
   std::reverse(v.begin() + pivot + 1, v.end());
   return;
+}
+
+template <typename T> std::vector<std::pair<T, T>> divisor_pairs(T n) {
+
+  std::vector<std::pair<T, T>> pairs{{1, n}};
+
+  for (T d{2}; d * d <= n; ++d) {
+    if (n % d == 0) {
+      pairs.push_back(std::make_pair(d, n / d));
+    }
+  }
+
+  return pairs;
+}
+
+template <typename T> std::vector<T> primes_below(T n) {
+
+  std::vector<bool> sieve = std::vector(n, true);
+  sieve.at(0) = false;
+  sieve.at(1) = false;
+
+  std::vector<T> primes{2};
+
+  T prime{2};
+
+  while (prime < n) {
+  sieve_factors:
+    for (T factor{2}; (prime * factor) < n; ++factor) {
+      sieve.at(prime * factor) = false;
+    }
+
+  find_next_prime:
+    ++prime;
+
+    for (; prime < n; ++prime) {
+      if (sieve.at(prime)) {
+        primes.push_back(prime);
+        goto sieve_factors;
+      }
+    }
+  }
+
+  return primes;
+}
+
+template <typename T> bool is_prime_by_trial(T n) {
+
+  if (n < 2) {
+    return false;
+  }
+
+  for (T i{2}; (i * i) <= n; ++i) {
+    if (n % i == 0) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 } // namespace utils

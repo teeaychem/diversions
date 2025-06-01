@@ -139,6 +139,10 @@ int main(int argc, char *argv[]) {
     reciprocal_cycles();
   } break;
 
+  case 27: {
+    quadratic_primes();
+  } break;
+
   case 31: {
     coin_sums();
   } break;
