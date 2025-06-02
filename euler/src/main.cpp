@@ -143,6 +143,10 @@ int main(int argc, char *argv[]) {
     quadratic_primes();
   } break;
 
+  case 28: {
+    number_spiral_diagonals();
+  } break;
+
   case 31: {
     coin_sums();
   } break;

@@ -23,6 +23,7 @@ target_sources(
         multiples_of_three_or_five.cpp
         name_scores.cpp
         non_abundant_sums.cpp
+        number_spiral_diagonals.cpp
         number_letter_counts.cpp
         power_digit_sum.cpp
         quadratic_primes.cpp
