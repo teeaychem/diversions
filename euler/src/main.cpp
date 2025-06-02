@@ -147,6 +147,10 @@ int main(int argc, char *argv[]) {
     number_spiral_diagonals();
   } break;
 
+  case 29: {
+    distinct_powers();
+  } break;
+
   case 31: {
     coin_sums();
   } break;

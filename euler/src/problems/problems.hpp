@@ -4,6 +4,7 @@
 void amicable_numbers();
 void coin_sums();
 void counting_sundays();
+void distinct_powers();
 void even_fibonacci_numbers(int limit);
 void factorial_digit_sum();
 void highly_divisible_triangular_number();
