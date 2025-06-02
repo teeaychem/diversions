@@ -75,24 +75,6 @@ template <typename T> std::vector<T> primes_below(T n) {
 
     for (; prime < n; ++prime) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       if (sieve.at(prime)) {
         primes.push_back(prime);
         goto sieve_factors;
@@ -136,4 +118,3 @@ template <typename T> std::vector<T> get_digits_reversed(T n) {
 
 } // namespace utils
 } // namespace euler
-0-
