@@ -7,6 +7,7 @@ target_sources(
         coin_sums.cpp
         counting_sundays.cpp
         distinct_powers.cpp
+        digit_fifth_powers.cpp
         even_fibonacci_numbers.cpp
         factorial_digit_sum.cpp
         highly_divisible_triangular_number.cpp

@@ -151,6 +151,10 @@ int main(int argc, char *argv[]) {
     distinct_powers();
   } break;
 
+  case 30: {
+    digit_fifth_powers();
+  } break;
+
   case 31: {
     coin_sums();
   } break;
