@@ -1,5 +1,4 @@
 #include "BigInt.hpp"
-#include <cmath>
 #include <cstdint>
 #include <string>
 
@@ -162,4 +161,20 @@ BigInt::Int BigInt::multiply(const BigInt::Int &a, const BigInt::Int &b) {
   z.sign = (a.sign == b.sign);
 
   return z;
+}
+
+BigInt::Int BigInt::pow(const BigInt::Int &a, const BigInt::Int &b) {
+
+  if (b.is_zero()) {
+    return BigInt::Int{1};
+  }
+
+  BigInt::Int raised{a};
+
+  for (BigInt::Int i{1}; i < b; i = i + 1) {
+
+    raised = raised * a;
+  }
+
+  return raised;
 }

@@ -44,21 +44,26 @@ public:
   // Streams:
   friend std::ostream &operator<<(std::ostream &, const Int &);
 
-  // Unary ops
+  // Constructors
   Int();
   Int(const std::string &);
   Int(const int64_t &);
   Int(const Int &);
 
+  // Unary ops
+
+  // - Overloads
+  inline Int operator-() const;
+
   // Binary ops
 
-  // Standalone friends
+  // - Standalone friends
   friend Int add(const BigInt::Int &a, const BigInt::Int &b);
   friend Int subtract(const BigInt::Int &a, const BigInt::Int &b);
   friend Int multiply(const BigInt::Int &a, const BigInt::Int &b);
+  friend Int pow(const BigInt::Int &a, const BigInt::Int &b);
 
-  // Overloads
-  inline Int operator-() const;
+  // - Overloads
 
   inline Int operator+(const Int &num) const { return add(*this, num); };
   inline Int operator-(const Int &num) const { return subtract(*this, num); };
@@ -66,12 +71,17 @@ public:
 
   // Comparisons
 
-  // Standalone friends
-  friend bool leq(const BigInt::Int &a, const BigInt::Int &b);
+  // - Standalone friends
+  friend bool less_than(const BigInt::Int &a, const BigInt::Int &b);
+  friend bool less_than_or_equal(const BigInt::Int &a, const BigInt::Int &b);
 
-  // Overloads
+  // - Overloads
   inline bool operator==(const Int &num) const {
     return (sign == num.sign) && (value == num.value);
+  };
+  inline bool operator<(const Int &num) const { return less_than(*this, num); };
+  inline bool operator<=(const Int &num) const {
+    return less_than_or_equal(*this, num);
   };
 
   // Coversion
