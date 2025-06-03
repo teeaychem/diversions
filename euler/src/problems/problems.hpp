@@ -6,6 +6,7 @@ void circular_primes();
 void coin_sums();
 void counting_sundays();
 void digit_fifth_powers();
+void digit_factorials();
 void distinct_powers();
 void even_fibonacci_numbers(int limit);
 void factorial_digit_sum();

@@ -122,7 +122,7 @@ size_t count_digits(T n) {
 }
 
 template <typename T>
-std::vector<T> get_digits_reversed(T n) {
+std::vector<T> digits_reversed(T n) {
   std::vector<T> digits{};
 
   if (n == 0) {
@@ -141,7 +141,7 @@ std::vector<T> get_digits_reversed(T n) {
 template <typename T>
 T digits_sorted(T n) {
 
-  std::vector<T> digits = get_digits_reversed(n);
+  std::vector<T> digits = digits_reversed(n);
 
   sort(digits.begin(), digits.end(),
        [](T const &a, T const &b) { return b < a; });
@@ -155,6 +155,18 @@ T digits_sorted(T n) {
   }
 
   return sorted;
+}
+
+template <typename T>
+T factorial_unchecked(T n) {
+
+  T total{1};
+
+  for (T i{2}; i <= n; ++i) {
+    total *= i;
+  }
+
+  return total;
 }
 
 } // namespace utils
