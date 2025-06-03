@@ -178,3 +178,19 @@ BigInt::Int BigInt::pow(const BigInt::Int &a, const BigInt::Int &b) {
 
   return raised;
 }
+
+BigInt::Int BigInt::factorial(const BigInt::Int &a) {
+
+  if (a.is_zero()) {
+    return BigInt::Int{1};
+  }
+
+  BigInt::Int total{1};
+
+  for (BigInt::Int i{1}; i <= a; i = i + 1) {
+
+    total = total * i;
+  }
+
+  return total;
+}

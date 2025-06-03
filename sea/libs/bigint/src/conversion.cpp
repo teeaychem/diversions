@@ -27,12 +27,12 @@ std::optional<int64_t> BigInt::Int::try_int64() const {
 
   if (this->size() < 19) {
     for (int i = 0; i < this->size(); ++i) {
-      result += (this->digit(i) * (pow(10, i)));
+      result += (this->digit(i) * (std::pow(10, i)));
     }
   } else if (this->size() == 19) {
     for (int i = 0; i < 19; ++i) {
       if (this->digit(i) <= int64_digits[i]) {
-        result += (this->digit(i) * (pow(10, i)));
+        result += (this->digit(i) * (std::pow(10, i)));
       } else {
         return std::nullopt;
       }

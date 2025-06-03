@@ -62,6 +62,7 @@ public:
   friend Int subtract(const BigInt::Int &a, const BigInt::Int &b);
   friend Int multiply(const BigInt::Int &a, const BigInt::Int &b);
   friend Int pow(const BigInt::Int &a, const BigInt::Int &b);
+  friend Int factorial(const BigInt::Int &a);
 
   // - Overloads
 
@@ -102,6 +103,8 @@ inline char digit_to_char(uint8_t d) { return d + '0'; };
 Int add(const BigInt::Int &a, const BigInt::Int &b);
 Int subtract(const BigInt::Int &a, const BigInt::Int &b);
 Int multiply(const BigInt::Int &a, const BigInt::Int &b);
+Int pow(const BigInt::Int &a, const BigInt::Int &b);
+Int factorial(const BigInt::Int &a);
 
 bool abs_lt(const BigInt::Int &a, const BigInt::Int &b);
 
