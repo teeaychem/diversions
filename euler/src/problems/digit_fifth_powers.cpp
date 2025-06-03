@@ -17,7 +17,7 @@ void digit_fifth_powers() {
   int64_t nine_to_five = pow(9, 5);
   int64_t digits{1};
 
-  while (utils::get_digits_reversed(digits * nine_to_five).size() > digits) {
+  while (utils::digits_reversed(digits * nine_to_five).size() > digits) {
     digits++;
   }
   std::cout << digits << "\n";
@@ -38,7 +38,7 @@ void digit_fifth_powers() {
   std::vector<int64_t> surprises{};
 
   for (int64_t n{2}; n < digits * nine_to_five; ++n) {
-    std::vector<int64_t> digits = utils::get_digits_reversed(n);
+    std::vector<int64_t> digits = utils::digits_reversed(n);
     if (n == raise_five(digits)) {
       surprises.push_back(n);
     }
