@@ -159,6 +159,10 @@ int main(int argc, char *argv[]) {
     coin_sums();
   } break;
 
+  case 35: {
+    circular_primes();
+  } break;
+
   default:
     std::cout << "Problem not yet attempted" << "\n";
   }

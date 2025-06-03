@@ -2,6 +2,7 @@
 #include <fstream>
 
 void amicable_numbers();
+void circular_primes();
 void coin_sums();
 void counting_sundays();
 void digit_fifth_powers();

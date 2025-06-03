@@ -100,6 +100,24 @@ template <typename T> bool is_prime_by_trial(T n) {
   return true;
 }
 
+template <typename T> size_t count_digits(T n) {
+  std::vector<T> digits{};
+
+  if (n == 0) {
+
+    return 1;
+  }
+
+  size_t count{0};
+
+  while (n != 0) {
+    count++;
+    n /= 10;
+  }
+
+  return count;
+}
+
 template <typename T> std::vector<T> get_digits_reversed(T n) {
   std::vector<T> digits{};
 
@@ -115,6 +133,35 @@ template <typename T> std::vector<T> get_digits_reversed(T n) {
 
   return digits;
 }
+
+template <typename T> T digits_sorted(T n) {
+
+  if (n == 0) {
+    return 0;
+  }
+
+  std::vector<T> digits{};
+
+  while (n != 0) {
+    digits.push_back(n % 10);
+    n /= 10;
+  }
+
+  sort(digits.begin(), digits.end(),
+       [](T const &a, T const &b) { return b < a; });
+
+  T sorted{0};
+
+  size_t idx{0};
+  for (auto it = digits.rbegin(); it != digits.rend(); ++it) {
+    sorted += *it * pow(10, idx);
+    idx++;
+  }
+
+  return sorted;
+}
+
+
 
 } // namespace utils
 } // namespace euler
