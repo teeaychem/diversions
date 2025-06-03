@@ -4,6 +4,7 @@ target_sources(
         problems.hpp
         #
         amicable_numbers.cpp
+        circular_primes.cpp
         coin_sums.cpp
         counting_sundays.cpp
         distinct_powers.cpp
