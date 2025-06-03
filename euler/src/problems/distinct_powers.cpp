@@ -1,5 +1,4 @@
 #include <BigInt.hpp>
-#include <cstdint>
 #include <iostream>
 #include <set>
 

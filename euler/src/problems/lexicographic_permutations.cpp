@@ -1,5 +1,5 @@
-#include "utils/utils.hpp"
 #include "utils/display.hpp"
+#include "utils/utils.hpp"
 #include <cstdint>
 #include <vector>
 

@@ -159,6 +159,10 @@ int main(int argc, char *argv[]) {
     coin_sums();
   } break;
 
+  case 32: {
+    pandigital_products();
+  } break;
+
   case 35: {
     circular_primes();
   } break;

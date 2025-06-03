@@ -5,13 +5,13 @@
 std::string itos(int i) {
 
   static std::vector<std::string> below_twenty{
-      "zero",    "one",     "two",       "three",    "four",
-      "five",    "six",     "seven",     "eight",    "nine",
-      "ten",     "eleven",  "twelve",    "thirteen", "fourteen",
+      "zero", "one", "two", "three", "four",
+      "five", "six", "seven", "eight", "nine",
+      "ten", "eleven", "twelve", "thirteen", "fourteen",
       "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
 
-  static std::vector<std::string> tens{"",      "",     "twenty", "thirty",
-                                       "forty",  "fifty", "sixty",  "seventy",
+  static std::vector<std::string> tens{"", "", "twenty", "thirty",
+                                       "forty", "fifty", "sixty", "seventy",
                                        "eighty", "ninety"};
 
   if (0 <= i && i < 20) {
