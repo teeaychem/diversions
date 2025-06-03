@@ -75,5 +75,4 @@ void largest_product_in_a_series(int subsequence_length, ifstream &infile) {
   }
 
   cout << max_product << endl;
-
 }

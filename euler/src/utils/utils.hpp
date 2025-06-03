@@ -1,11 +1,10 @@
-#include <cstdint>
-#include <iostream>
 #include <utility>
 #include <vector>
 namespace euler {
 namespace utils {
 
-template <typename T> void next_permutation(std::vector<T> &v) {
+template <typename T>
+void next_permutation(std::vector<T> &v) {
   size_t size = v.size();
 
   size_t pivot{size - 2};
@@ -41,7 +40,8 @@ use_pivot:
   return;
 }
 
-template <typename T> std::vector<std::pair<T, T>> divisor_pairs(T n) {
+template <typename T>
+std::vector<std::pair<T, T>> divisor_pairs(T n) {
 
   std::vector<std::pair<T, T>> pairs{{1, n}};
 
@@ -54,7 +54,8 @@ template <typename T> std::vector<std::pair<T, T>> divisor_pairs(T n) {
   return pairs;
 }
 
-template <typename T> std::vector<T> primes_below(T n) {
+template <typename T>
+std::vector<T> primes_below(T n) {
 
   std::vector<bool> sieve = std::vector(n, true);
   sieve.at(0) = false;
@@ -85,7 +86,8 @@ template <typename T> std::vector<T> primes_below(T n) {
   return primes;
 }
 
-template <typename T> bool is_prime_by_trial(T n) {
+template <typename T>
+bool is_prime_by_trial(T n) {
 
   if (n < 2) {
     return false;
@@ -100,7 +102,8 @@ template <typename T> bool is_prime_by_trial(T n) {
   return true;
 }
 
-template <typename T> size_t count_digits(T n) {
+template <typename T>
+size_t count_digits(T n) {
   std::vector<T> digits{};
 
   if (n == 0) {
@@ -118,7 +121,8 @@ template <typename T> size_t count_digits(T n) {
   return count;
 }
 
-template <typename T> std::vector<T> get_digits_reversed(T n) {
+template <typename T>
+std::vector<T> get_digits_reversed(T n) {
   std::vector<T> digits{};
 
   if (n == 0) {
@@ -134,18 +138,10 @@ template <typename T> std::vector<T> get_digits_reversed(T n) {
   return digits;
 }
 
-template <typename T> T digits_sorted(T n) {
+template <typename T>
+T digits_sorted(T n) {
 
-  if (n == 0) {
-    return 0;
-  }
-
-  std::vector<T> digits{};
-
-  while (n != 0) {
-    digits.push_back(n % 10);
-    n /= 10;
-  }
+  std::vector<T> digits = get_digits_reversed(n);
 
   sort(digits.begin(), digits.end(),
        [](T const &a, T const &b) { return b < a; });
@@ -160,8 +156,6 @@ template <typename T> T digits_sorted(T n) {
 
   return sorted;
 }
-
-
 
 } // namespace utils
 } // namespace euler

@@ -14,6 +14,4 @@ void large_sum(ifstream &infile) {
   }
 
   cout << big_sum << "\n";
-
-
 }

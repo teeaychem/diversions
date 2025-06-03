@@ -3,10 +3,10 @@
 #include <cstdint>
 #include <iostream>
 #include <map>
-#include <set>
 #include <vector>
 
-template <typename T> T get_max_rotation(T n) {
+template <typename T>
+T get_max_rotation(T n) {
 
   if (n == 0) {
     return 0;
