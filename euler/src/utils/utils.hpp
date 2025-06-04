@@ -169,5 +169,34 @@ T factorial_unchecked(T n) {
   return total;
 }
 
+template <typename T>
+std::vector<bool> as_base_two_bit_vec(T n) {
+  std::vector<bool> bits{};
+
+  T two{1};
+
+  while (two <= n) {
+    bits.push_back((two & n) == two);
+    two <<= 1;
+  }
+
+  return bits;
+}
+
+template <typename T>
+bool is_palindromic(const T &object) {
+  auto it = object.begin();
+  auto ti = object.rbegin();
+  for (size_t i = 0; i < object.size() / 2; ++i) {
+    if (*it != *ti) {
+      return false;
+    }
+    ++it;
+    ++ti;
+  }
+
+  return true;
+}
+
 } // namespace utils
 } // namespace euler

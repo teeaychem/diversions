@@ -11,6 +11,7 @@ target_sources(
         digit_cancelling_fractions.cpp
         digit_factorials.cpp
         digit_fifth_powers.cpp
+        double_base_palindromes.cpp
         even_fibonacci_numbers.cpp
         factorial_digit_sum.cpp
         highly_divisible_triangular_number.cpp

@@ -1,6 +1,6 @@
 #include <cmath>
-#include <cstdint>
 #include <iostream>
+
 
 void digit_cancelling_fractions() {
 

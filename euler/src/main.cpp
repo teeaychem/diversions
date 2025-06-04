@@ -175,6 +175,10 @@ int main(int argc, char *argv[]) {
     circular_primes();
   } break;
 
+  case 36: {
+    double_base_palindromes();
+  } break;
+
   default:
     std::cout << "Problem not yet attempted" << "\n";
   }
