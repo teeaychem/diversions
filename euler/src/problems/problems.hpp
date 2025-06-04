@@ -5,6 +5,7 @@ void amicable_numbers();
 void circular_primes();
 void coin_sums();
 void counting_sundays();
+void digit_cancelling_fractions();
 void digit_fifth_powers();
 void digit_factorials();
 void distinct_powers();

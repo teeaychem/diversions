@@ -8,6 +8,7 @@ target_sources(
         coin_sums.cpp
         counting_sundays.cpp
         distinct_powers.cpp
+        digit_cancelling_fractions.cpp
         digit_factorials.cpp
         digit_fifth_powers.cpp
         even_fibonacci_numbers.cpp

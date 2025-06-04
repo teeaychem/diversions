@@ -163,6 +163,10 @@ int main(int argc, char *argv[]) {
     pandigital_products();
   } break;
 
+  case 33: {
+    digit_cancelling_fractions();
+  } break;
+
   case 34: {
     digit_factorials();
   } break;
