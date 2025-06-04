@@ -9,6 +9,7 @@ void digit_cancelling_fractions();
 void digit_fifth_powers();
 void digit_factorials();
 void distinct_powers();
+void double_base_palindromes();
 void even_fibonacci_numbers(int limit);
 void factorial_digit_sum();
 void highly_divisible_triangular_number();
