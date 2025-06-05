@@ -37,3 +37,4 @@ void smallest_multiple(int n);
 void special_pythagorean_triplet();
 void sum_square_difference(int n);
 void summation_of_primes(int n);
+void truncatable_primes();
