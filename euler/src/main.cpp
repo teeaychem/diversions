@@ -179,6 +179,10 @@ int main(int argc, char *argv[]) {
     double_base_palindromes();
   } break;
 
+  case 37: {
+    truncatable_primes ();
+  } break;
+
   default:
     std::cout << "Problem not yet attempted" << "\n";
   }

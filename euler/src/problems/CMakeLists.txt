@@ -39,4 +39,5 @@ target_sources(
         special_pythagorean_triplet.cpp
         sum_square_difference.cpp
         summation_of_primes.cpp
+        truncatable_primes.cpp
 )

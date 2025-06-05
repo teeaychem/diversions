@@ -198,5 +198,81 @@ bool is_palindromic(const T &object) {
   return true;
 }
 
+template <typename T>
+T reverse_digits(T n) {
+
+  T n_rev{0};
+
+  for (size_t i{0}; n != 0; ++i) {
+
+    n_rev *= 10;
+    n_rev += n % 10;
+    n /= 10;
+  }
+
+  return n_rev;
+}
+
+template <typename T>
+T remove_digit(T n, size_t idx) {
+  ++idx;
+
+  size_t digit_count = euler::utils::count_digits(n);
+
+  T n_rev{0};
+
+  for (size_t i{0}; n != 0; ++i) {
+
+    if (i == (digit_count - idx)) {
+      n /= 10;
+      continue;
+    } else {
+      n_rev *= 10;
+      n_rev += n % 10;
+      n /= 10;
+    }
+  }
+
+  T n_x{0};
+
+  for (size_t i{0}; n_rev != 0; ++i) {
+
+    n_x *= 10;
+    n_x += n_rev % 10;
+    n_rev /= 10;
+  }
+
+  return n_x;
+}
+
+template <typename T>
+T remove_first_digit(T n) {
+
+  if (n < 10) {
+    return 0;
+  }
+
+  T n_rev{0};
+
+  for (size_t i{0}; n != 0; ++i) {
+    n_rev *= 10;
+    n_rev += n % 10;
+    n /= 10;
+  }
+
+  n_rev /= 10;
+
+  T n_x{0};
+
+  for (size_t i{0}; n_rev != 0; ++i) {
+
+    n_x *= 10;
+    n_x += n_rev % 10;
+    n_rev /= 10;
+  }
+
+  return n_x;
+}
+
 } // namespace utils
 } // namespace euler
