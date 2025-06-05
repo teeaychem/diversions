@@ -183,6 +183,10 @@ int main(int argc, char *argv[]) {
     truncatable_primes ();
   } break;
 
+  case 39: {
+    integer_right_triangles();
+  } break;
+
   default:
     std::cout << "Problem not yet attempted" << "\n";
   }
