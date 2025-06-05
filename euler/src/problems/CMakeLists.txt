@@ -16,6 +16,7 @@ target_sources(
         factorial_digit_sum.cpp
         highly_divisible_triangular_number.cpp
         ith_prime.cpp
+        integer_right_triangles.cpp
         large_fibonacci.cpp
         large_sum.cpp
         largest_palindrome_product.cpp

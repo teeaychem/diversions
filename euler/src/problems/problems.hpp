@@ -14,6 +14,7 @@ void even_fibonacci_numbers(int limit);
 void factorial_digit_sum();
 void highly_divisible_triangular_number();
 void ith_prime(int);
+void integer_right_triangles();
 void large_fibonacci();
 void large_sum(std::ifstream &infile);
 void largest_palindrome_product(int limit);
