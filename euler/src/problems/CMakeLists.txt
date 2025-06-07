@@ -6,6 +6,7 @@ target_sources(
         amicable_numbers.cpp
         circular_primes.cpp
         champernownes_constant.cpp
+        coded_triangle_numbers.cpp
         coin_sums.cpp
         counting_sundays.cpp
         distinct_powers.cpp
