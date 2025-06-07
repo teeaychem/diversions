@@ -32,6 +32,7 @@ target_sources(
         non_abundant_sums.cpp
         number_spiral_diagonals.cpp
         number_letter_counts.cpp
+        pandigital_multiples.cpp
         pandigital_products.cpp
         power_digit_sum.cpp
         quadratic_primes.cpp
