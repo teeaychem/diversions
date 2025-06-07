@@ -191,6 +191,10 @@ int main(int argc, char *argv[]) {
     integer_right_triangles();
   } break;
 
+  case 40: {
+    champernownes_constant();
+  } break;
+
   default:
     std::cout << "Problem not yet attempted" << "\n";
   }

@@ -2,6 +2,7 @@
 #include <fstream>
 
 void amicable_numbers();
+void champernownes_constant();
 void circular_primes();
 void coin_sums();
 void counting_sundays();
