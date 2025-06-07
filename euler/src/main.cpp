@@ -195,6 +195,10 @@ int main(int argc, char *argv[]) {
     champernownes_constant();
   } break;
 
+  case 41: {
+    pandigital_prime();
+  } break;
+
   default:
     std::cout << "Problem not yet attempted" << "\n";
   }
