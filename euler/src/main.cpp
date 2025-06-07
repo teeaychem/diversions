@@ -199,6 +199,11 @@ int main(int argc, char *argv[]) {
     pandigital_prime();
   } break;
 
+  case 42: {
+    std::ifstream file = ifstream_arg(2);
+    coded_triangle_numbers(file);
+  } break;
+
   default:
     std::cout << "Problem not yet attempted" << "\n";
   }
