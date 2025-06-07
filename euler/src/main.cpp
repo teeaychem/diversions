@@ -180,7 +180,11 @@ int main(int argc, char *argv[]) {
   } break;
 
   case 37: {
-    truncatable_primes ();
+    truncatable_primes();
+  } break;
+
+  case 38: {
+    pandigital_multiples();
   } break;
 
   case 39: {
