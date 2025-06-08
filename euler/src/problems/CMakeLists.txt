@@ -13,6 +13,7 @@ target_sources(
         digit_factorials.cpp
         digit_fifth_powers.cpp
         distinct_powers.cpp
+        distinct_primes_factors.cpp
         double_base_palindromes.cpp
         even_fibonacci_numbers.cpp
         factorial_digit_sum.cpp

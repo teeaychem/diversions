@@ -11,6 +11,7 @@ void digit_cancelling_fractions();
 void digit_factorials();
 void digit_fifth_powers();
 void distinct_powers();
+void distinct_primes_factors();
 void double_base_palindromes();
 void even_fibonacci_numbers(int limit);
 void factorial_digit_sum();

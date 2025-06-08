@@ -274,5 +274,59 @@ T remove_first_digit(T n) {
   return n_x;
 }
 
+template <typename T>
+std::vector<T> prime_factors(T n) {
+
+  std::vector<T> factors{};
+
+  T todo{n};
+
+  while (todo % 2 == 0) {
+    factors.push_back(2);
+    todo /= 2;
+  }
+
+  for (T d{3}; d <= n; d += 2) {
+    while (todo % d == 0) {
+      factors.push_back(d);
+      todo /= d;
+    }
+  }
+
+  return factors;
+}
+
+template <typename T>
+std::vector<T> unique_prime_factors(T n) {
+
+  std::vector<T> factors{};
+
+  T todo{n};
+
+  if (todo % 2 == 0) {
+    factors.push_back(2);
+  }
+
+  while (todo % 2 == 0) {
+    todo /= 2;
+  }
+
+  for (T d{3}; d <= n; d += 2) {
+    if (todo % d == 0) {
+      factors.push_back(d);
+    }
+
+    while (todo % d == 0) {
+      todo /= d;
+    }
+
+    if (todo == 0) {
+      break;
+    }
+  }
+
+  return factors;
+}
+
 } // namespace utils
 } // namespace euler
