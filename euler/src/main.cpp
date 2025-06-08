@@ -208,6 +208,10 @@ int main(int argc, char *argv[]) {
     substring_divisibility();
   } break;
 
+  case 44: {
+    pentagon_numbers();
+  } break;
+
   default:
     std::cout << "Problem not yet attempted" << "\n";
   }
