@@ -216,6 +216,10 @@ int main(int argc, char *argv[]) {
     triangular_pentagonal_hexagonal();
   } break;
 
+  case 47: {
+    distinct_primes_factors();
+  } break;
+
   default:
     std::cout << "Problem not yet attempted" << "\n";
   }
