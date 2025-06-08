@@ -39,6 +39,3 @@ void distinct_primes_factors() {
     std::cout << "\n";
   }
 }
-
-
-7819110846700

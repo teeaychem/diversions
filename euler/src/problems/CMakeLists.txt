@@ -17,6 +17,7 @@ target_sources(
         double_base_palindromes.cpp
         even_fibonacci_numbers.cpp
         factorial_digit_sum.cpp
+        goldbachs_other_conjecture.cpp
         highly_divisible_triangular_number.cpp
         integer_right_triangles.cpp
         ith_prime.cpp
