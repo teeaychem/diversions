@@ -35,6 +35,7 @@ void number_spiral_diagonals();
 void pandigital_multiples();
 void pandigital_prime();
 void pandigital_products();
+void pentagon_numbers();
 void power_digit_sum();
 void quadratic_primes();
 void reciprocal_cycles();

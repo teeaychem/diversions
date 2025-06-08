@@ -37,6 +37,7 @@ target_sources(
         pandigital_multiples.cpp
         pandigital_prime.cpp
         pandigital_products.cpp
+        pentagon_numbers.cpp
         power_digit_sum.cpp
         quadratic_primes.cpp
         reciprocal_cycles.cpp
