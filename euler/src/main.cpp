@@ -228,6 +228,10 @@ int main(int argc, char *argv[]) {
     self_powers();
   } break;
 
+  case 50: {
+    consecutive_prime_sum();
+  } break;
+
   default:
     std::cout << "Problem not yet attempted" << "\n";
   }

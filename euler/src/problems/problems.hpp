@@ -6,6 +6,7 @@ void champernownes_constant();
 void circular_primes();
 void coded_triangle_numbers(std::ifstream &file);
 void coin_sums();
+void consecutive_prime_sum();
 void counting_sundays();
 void digit_cancelling_fractions();
 void digit_factorials();

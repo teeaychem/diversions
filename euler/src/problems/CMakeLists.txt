@@ -8,6 +8,7 @@ target_sources(
         circular_primes.cpp
         coded_triangle_numbers.cpp
         coin_sums.cpp
+        consecutive_prime_sum.cpp
         counting_sundays.cpp
         digit_cancelling_fractions.cpp
         digit_factorials.cpp
