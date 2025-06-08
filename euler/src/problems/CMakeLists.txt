@@ -46,5 +46,6 @@ target_sources(
         substring_divisibility.cpp
         sum_square_difference.cpp
         summation_of_primes.cpp
+        triangular_pentagonal_hexagonal.cpp
         truncatable_primes.cpp
 )

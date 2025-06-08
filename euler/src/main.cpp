@@ -212,6 +212,10 @@ int main(int argc, char *argv[]) {
     pentagon_numbers();
   } break;
 
+  case 45: {
+    triangular_pentagonal_hexagonal();
+  } break;
+
   default:
     std::cout << "Problem not yet attempted" << "\n";
   }
