@@ -220,6 +220,10 @@ int main(int argc, char *argv[]) {
     distinct_primes_factors();
   } break;
 
+  case 48: {
+    self_powers();
+  } break;
+
   default:
     std::cout << "Problem not yet attempted" << "\n";
   }

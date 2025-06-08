@@ -42,6 +42,7 @@ target_sources(
         power_digit_sum.cpp
         quadratic_primes.cpp
         reciprocal_cycles.cpp
+        self_powers.cpp
         smallest_multiple.cpp
         special_pythagorean_triplet.cpp
         substring_divisibility.cpp
