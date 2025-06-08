@@ -40,6 +40,7 @@ void quadratic_primes();
 void reciprocal_cycles();
 void smallest_multiple(int n);
 void special_pythagorean_triplet();
+void substring_divisibility();
 void sum_square_difference(int n);
 void summation_of_primes(int n);
 void truncatable_primes();
