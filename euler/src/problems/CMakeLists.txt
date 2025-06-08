@@ -4,21 +4,21 @@ target_sources(
         problems.hpp
         #
         amicable_numbers.cpp
-        circular_primes.cpp
         champernownes_constant.cpp
+        circular_primes.cpp
         coded_triangle_numbers.cpp
         coin_sums.cpp
         counting_sundays.cpp
-        distinct_powers.cpp
         digit_cancelling_fractions.cpp
         digit_factorials.cpp
         digit_fifth_powers.cpp
+        distinct_powers.cpp
         double_base_palindromes.cpp
         even_fibonacci_numbers.cpp
         factorial_digit_sum.cpp
         highly_divisible_triangular_number.cpp
-        ith_prime.cpp
         integer_right_triangles.cpp
+        ith_prime.cpp
         large_fibonacci.cpp
         large_sum.cpp
         largest_palindrome_product.cpp
@@ -32,8 +32,8 @@ target_sources(
         multiples_of_three_or_five.cpp
         name_scores.cpp
         non_abundant_sums.cpp
-        number_spiral_diagonals.cpp
         number_letter_counts.cpp
+        number_spiral_diagonals.cpp
         pandigital_multiples.cpp
         pandigital_prime.cpp
         pandigital_products.cpp
@@ -42,6 +42,7 @@ target_sources(
         reciprocal_cycles.cpp
         smallest_multiple.cpp
         special_pythagorean_triplet.cpp
+        substring_divisibility.cpp
         sum_square_difference.cpp
         summation_of_primes.cpp
         truncatable_primes.cpp

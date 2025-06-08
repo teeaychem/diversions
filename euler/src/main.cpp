@@ -204,6 +204,10 @@ int main(int argc, char *argv[]) {
     coded_triangle_numbers(file);
   } break;
 
+  case 43: {
+    substring_divisibility();
+  } break;
+
   default:
     std::cout << "Problem not yet attempted" << "\n";
   }
