@@ -42,6 +42,7 @@ target_sources(
         pandigital_products.cpp
         pentagon_numbers.cpp
         power_digit_sum.cpp
+        prime_permutations.cpp
         quadratic_primes.cpp
         reciprocal_cycles.cpp
         self_powers.cpp
