@@ -228,6 +228,10 @@ int main(int argc, char *argv[]) {
     self_powers();
   } break;
 
+  case 49: {
+    prime_permutations();
+  } break;
+
   case 50: {
     consecutive_prime_sum();
   } break;

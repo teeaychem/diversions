@@ -139,7 +139,7 @@ std::vector<T> digits_reversed(T n) {
 }
 
 template <typename T>
-T digits_sorted(T n) {
+T digits_reverse_sorted(T n) {
 
   std::vector<T> digits = digits_reversed(n);
 
@@ -326,6 +326,36 @@ std::vector<T> unique_prime_factors(T n) {
   }
 
   return factors;
+}
+
+template <typename T>
+void digit_permutations_helper(std::vector<T> &permutations, std::vector<T> &digits, T tmp, size_t tmp_size, size_t idx, size_t length) {
+
+  if (tmp_size == length) {
+    permutations.push_back(tmp);
+    return;
+  }
+
+  if (idx == digits.size()) {
+    return;
+  }
+
+  digit_permutations_helper(permutations, digits, tmp, tmp_size, idx + 1, length);
+
+  tmp *= 10;
+  tmp += digits.at(idx);
+
+  digit_permutations_helper(permutations, digits, tmp, tmp_size + 1, idx + 1, length);
+}
+
+template <typename T>
+std::vector<T> digit_permutations(std::vector<T> &digits, size_t length) {
+
+  std::vector<T> permutations{};
+
+  digit_permutations_helper(permutations, digits, (T)0, 0, 0, length);
+
+  return permutations;
 }
 
 } // namespace utils

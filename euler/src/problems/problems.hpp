@@ -50,3 +50,4 @@ void sum_square_difference(int n);
 void summation_of_primes(int n);
 void triangular_pentagonal_hexagonal();
 void truncatable_primes();
+void prime_permutations();
